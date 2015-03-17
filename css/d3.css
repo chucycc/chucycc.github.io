@@ -19,8 +19,8 @@
   width: 20%;
   position: absolute;
   left: 0;
-  padding-top: 170px;
-  padding-left:50px;
+  margin-top: 170px;
+  margin-left: 100px;
 }
 .d3-map{
   width: 80%;
