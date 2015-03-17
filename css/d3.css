@@ -1,0 +1,144 @@
+@charset "UTF-8";
+/* CSS Document */
+@font-face {
+	font-family: 'BrandonGrotesque';
+	font-weight: normal;
+	font-style: normal;
+	src: url("fonts/2C13D7_0_0.eot");
+	src: url("fonts/2C13D7_0_0.eot") format("embedded-opentype"), url("fonts/2C13D7_0_0.woff") format("woff"), url("fonts/2C13D7_0_0.ttf") format("truetype"), url("../img/2C13D7_0_0.svg") format("svg");
+}
+@font-face {
+	font-family: 'BrandonGrotesque';
+	font-weight: bold;
+	font-style: normal;
+	src: url("fonts/2C13D7_1_0.eot");
+	src: url("fonts/2C13D7_1_0.eot?#iefix") format("embedded-opentype"), url("fonts/2C13D7_1_0.woff") format("woff"), url("fonts/2C13D7_1_0.ttf") format("truetype"), url("../img/2C13D7_1_0.svg") format("svg");
+}
+
+.d3-bar{
+  width: 20%;
+  position: absolute;
+  left: 0;
+  padding-top: 70px;
+}
+.d3-map{
+  width: 80%;
+  position: absolute;
+  right: 0;
+}
+
+.hospital {
+	fill:black;
+	stroke: #505050;
+	stroke-width: 0.1px;
+}
+.zip {
+	fill: white;
+	transition: fill 0.5s ease;
+	stroke: grey;
+	stroke-width: .1px;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+}
+.zip:hover {
+	fill: black;
+}
+.zip.not-open:hover #hoverBox {
+    left: 50px;
+    opacity: 1;
+}
+.state-boundary {
+	fill: none;
+	stroke: #505050;
+	stroke-width: .2px;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+}
+.land-boundary {
+	fill: none;
+	stroke: #777;
+	stroke-width: .5px;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+}
+.background {
+	fill: none;
+	pointer-events: all;
+}
+/*Zip infobox*/
+.textbox {
+		font-family: "BrandonGrotesque", Helvetica, Arial, sans-serif;
+		color:#5D5D5D;
+		text-align:left;
+		border-bottom: grey thin;
+		/*-webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);*/
+}
+.textbox h1 {
+	 font-size: 24px;
+	 line-height: 16px;
+	 letter-spacing: -1px;
+	 border-bottom: 10px solid #92D400;
+	 overflow: visible;
+	 padding-top: 10px;
+	 margin-top: -8px;
+}
+.textbox h2 {
+	 font-size: 28px;
+	 line-height: 18px;
+	 letter-spacing: -1px;
+	 overflow: visible;
+	 padding-top: 10px;
+	 margin-top: -8px;
+}
+.textbox p {
+	line-height: 10px;
+	margin:0;
+}
+/*Hospital infobox*/
+.textboxHS {
+		font-family: "BrandonGrotesque", Helvetica, Arial, sans-serif;
+		color:#5D5D5D;
+		text-align:left;
+		border-bottom: grey thin;
+}
+.textboxHS h1 {
+	font-size: 18px;
+    line-height: 18px;
+    letter-spacing: -1px;
+	border-bottom: 10px solid #E8E8E8;
+    overflow: visible;
+    padding-top: 10px;
+    margin-top: -8px;
+}
+.textboxHS h2 {
+	 font-size: 26px;
+	 line-height: 18px;
+	 letter-spacing: -1px;
+	 overflow: visible;
+	 padding-top: 10px;
+	 margin-top: -8px;
+}
+.textboxHS p {
+	line-height: 10px;
+	margin:0;
+}
+/*Bar chart */
+.svgHS {
+	text-align:right;
+	fill: #505050 ;
+	stroke: black;
+	stroke-width: 0.1px;
+}
+.barObj {
+	text-align:left;
+	padding-top:100px;
+	/*background:url("background.png") repeat repeat;*/
+}
+.barObj rect:hover {
+	fill: white;
+	stroke: black;
+	stroke-width: .5px;
+	transition: fill 0.5s ease;
+}
