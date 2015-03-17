@@ -15,6 +15,20 @@
 	src: url("fonts/2C13D7_1_0.eot?#iefix") format("embedded-opentype"), url("fonts/2C13D7_1_0.woff") format("woff"), url("fonts/2C13D7_1_0.ttf") format("truetype"), url("../img/2C13D7_1_0.svg") format("svg");
 }
 
+.d3-bar{
+  width: 20%;
+  position: absolute;
+  left: 0;
+  padding-top: 170px;
+  padding-left:50px;
+}
+.d3-map{
+  width: 80%;
+  position: absolute;
+  right: 0;
+  padding-left:50px;
+}
+
 .hospital {
 	fill:black;
 	stroke: #505050;
