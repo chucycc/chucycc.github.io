@@ -1,0 +1,115 @@
+<html class=" js no-touch csscolumns csstransforms csstransforms3d csstransitions" lang="en-US" style="">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<title>Group3::Project Healt$care</title>
+<meta name="description" content="Healt$care"/>
+<link rel="shortcut icon" href="http://" type="image/x-icon"/>
+<!-- github.io link -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+<link rel='stylesheet' id='apparatus-style-css' href='css/style.css' type='text/css' media='all'/>
+<script src="js/ga.js"></script><script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="js/modernizr.js"></script>
+</head>
+<body class="page page-id-1367 page-template page-template-simple-page page-template-simple-page-php" gram_dict="true">
+<div class="loader page-loader" style="display: none;">
+  <div class="loader-dot velocity-animating" style="transform: scaleX(0.981646624890886) scaleY(0.981646624890886);"></div>
+</div>
+<div class="menu-toggle fade-in"> <span class="hamburger-bar"></span> <span class="hamburger-bar"></span> <span class="hamburger-bar"></span> </div>
+<div class="cart-toggle u-none fade-in" style="margin-right: 0px;"> </div>
+<div class="overlay"></div>
+<div class="l-page-wrap">
+  <div class="logo fade-in"> <a href="index.html"><img src="img/logo.svg" alt="Healt$care"></a> </div>
+  <div class="l-content-wrap fade-in">
+    <div class="l-content">
+      <div class="simple-page-content">
+        <h2 style="margin:0">Questions</h2>
+        <h3 style="margin:0">We Are Asking</h3>
+        <p style="padding-top:20px">We shed lights on the relationship between money and healthcare, specifically:
+        <li><b>Medicare spending efficiency:</b>Does higher hospital healthcare spending translate to better healthcare quality?</li>
+        <li><b>Regional differences:</b>Do poorer regions' spending efficiency lower?</li>
+        </p>
+        <h2 style="margin:60px 0 0 0">Datasets</h2>
+        <h3 style="margin:0">We Are Using</h3>
+        <li style="padding-top:20px">We measure <b>hospital medicare quality</b> by ten objective measures used by the Delmarva Foundation’s Award for Excellence and many other prestigious hospitals, as well as two subjective measures from a patients survey conducted by the Centers for Medicare and Medicaid.</li>
+        <li><b>Medicare spending data</b> are also available from the same data source.</li>
+        <li>We measure regional proverty by <b>Individual Income Tax data by zip code</b> from IRS Tax Center.</li>
+        <!--    
+<li>Percentage of heart failure patients given discharge instructions.</li>
+<li>Percentage of heart failure patients whose left ventricular systolic function was evaluated (HF-2)</li>
+<li>Percentage of non-immunized patients who received an influenza immunization (IMM-2)</li>
+<li>Percentage of cases where prophylactic antibiotic was initiated within one hour prior to surgical incision (OP-6)</li>
+<li>Selection of prophylactic antibiotics for surgical patients (OP-7)</li>
+<li>Prophylactic antibiotics discontinued 24 hours after surgery time (SCIP_INF_3)</li>
+<li>Surgery Patients on a Beta Blocker Prior to Arrival Who Received a Beta Blocker During the Perioperative Period (SCIP_CARD_2)</li>
+<li>Surgery Patients Who Received Appropriate Venous Thromboembolism Prophylaxis Within 24 Hours Prior to Surgery to 24 Hours After Surgery (SCIP_VTE_2)</li>
+<li>Postoperative Urinary Catheter Removal.</li>
+<li>Initial antibiotic selection for community acquired pneumonia in immunocompetent patient.</li>
+-->
+        </p>
+        <h3>Data Processing</h3> <!-- Problems we met and how we addressed above 3 data quality issues. -->
+        <p><li><b>Distributions are not normal</b>. This analitical limit pursuaded us to 1)focus more on data distribution rather than correlation ;2)emphasize visual analytics by an interactive map rather than statistical approaches.</li>
+        <li><b>Missing data</b>.Around 700 hospitals did not provide information on all of the measures required for the Delmarva Foundation's criteria. We left these hospitals out of our analysis. These hospitals included more hospitals that had lower Medicare expenditure, so this may have affected our data. Since the values omitted were evenly distributed on the whole, though, we believe our findings are still valid.
+</li>
+        <li><b>Geo-coding</b>.We transferred the hospital addresses and the zipcode regions to lan/long geographical data, yet there are about 10 data points outside of US territory. We mannualy removed these data spots.</li></p>
+        <h2 style="margin:60px 0 0 0">Exploration</h2>
+        <h3 style="margin:0">of the question</h3>
+        <h3>Statistics</h3>
+        <p>We compared the Medicare spending per claim and the median income of the hospital area of hospitals that met the criteria for the Delmarva Award with those that did not by looking at the difference between their distributions.<br>
+We found that hospitals that spent more on Medicare were more likely to meet the criteria for the award (p < .00001). Besides, counterintuitively, hospitals with higher median incomes are no more likely to meet the criteria for the Delmarva award than those with lower median incomes.</p>
+        <h3>Visualization</h3>
+        <p><li>Although the geographical distribution of variables is not statistically significant to our question, visual analysis shows some interesting patterns. For example, We compared the poverty level among area without a hospital, with one hospital and with multiple hospitals. We have also included these observations in our web page, hoping to inspire new interesting questions and follow-up discussions.</li></p>
+      </div>
+    </div>
+  </div>
+  <footer class="l-footer footer fade-in"> <a href="index.html" class="hidden-phone">Back to Visualization</a></footer>
+</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","ajax_loader_url":"\/\/apparatusstudio.com\/wp-content\/plugins\/woocommerce\/assets\/images\/ajax-loader@2x.gif","i18n_view_cart":"View Cart","cart_url":"http:\/\/apparatusstudio.com\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","ajax_loader_url":"\/\/apparatusstudio.com\/wp-content\/plugins\/woocommerce\/assets\/images\/ajax-loader@2x.gif","i18n_view_cart":"View Cart","cart_url":"http:\/\/apparatusstudio.com\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+/* ]]> */
+</script> 
+<script type="text/javascript" src="js/add-to-cart.min.js"></script> 
+<script type="text/javascript" src="js/jquery.blockUI.min.js"></script> 
+<script type="text/javascript">
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","ajax_loader_url":"\/\/apparatusstudio.com\/wp-content\/plugins\/woocommerce\/assets\/images\/ajax-loader@2x.gif"};
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","ajax_loader_url":"\/\/apparatusstudio.com\/wp-content\/plugins\/woocommerce\/assets\/images\/ajax-loader@2x.gif"};
+/* ]]> */
+</script> 
+<script type="text/javascript" src="js/woocommerce.min.js"></script> 
+<script type="text/javascript" src="js/jquery.cookie.min.js"></script> 
+<script type="text/javascript">
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","fragment_name":"wc_fragments"};
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","fragment_name":"wc_fragments"};
+/* ]]> */
+</script> 
+<script type="text/javascript" src="js/cart-fragments.min.js"></script> 
+<script type="text/javascript" src="js/plugins.js"></script> 
+<script type="text/javascript" src="js/site.js"></script> 
+<script>
+    var _gaq=[['_setAccount','UA-35779223-7'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script> 
+<script type="text/javascript">
+/* <![CDATA[ */
+(function(){try{var s,a,i,j,r,c,l=document.getElementsByTagName("a"),t=document.createElement("textarea");for(i=0;l.length-i;i++){try{a=l[i].getAttribute("href");if(a&&a.indexOf("/cdn-cgi/l/email-protection") > -1  && (a.length > 28)){s='';j=27+ 1 + a.indexOf("/cdn-cgi/l/email-protection");if (a.length > j) {r=parseInt(a.substr(j,2),16);for(j+=2;a.length>j&&a.substr(j,1)!='X';j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}j+=1;s+=a.substr(j,a.length-j);}t.innerHTML=s.replace(/</g,"&lt;").replace(/>/g,"&gt;");l[i].setAttribute("href","mailto:"+t.value);}}catch(e){}}}catch(e){}})();
+/* ]]> */
+</script>
+</body>
+<div class="gr-context gr-dict gr-context-loader gr-dict-freemium" style="display: none;"><span class="gr-triangle"></span>
+  <div class="gr-placeholder"></div>
+  <a href="http://www.grammarly.com/?utm_source=dict&utm_medium=link&utm_campaign=chrome_plg" target="_blank" class="gr-hint-settings"></a><strong class="gr-title"></strong>
+  <div class="gr-dict-content"></div>
+</div>
+<div class="b-freemium-editor" style="display: none;">
+  <div class="b-freemium-editor-back"></div>
+  <iframe class="gr-freemium-ifr"></iframe>
+</div>
+</html>
