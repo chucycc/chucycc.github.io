@@ -141,7 +141,7 @@ function ready(error, us, hs) {
     svg.append("text")
     .attr("x", width * 0.75)
     .attr("y", height * 0.1)
-    .text("hello");
+    /*.text("hello");*/
 
 /*    var active = false;
 	g.selectAll(".point")
@@ -160,7 +160,7 @@ function zoomed() {
 
 function mouseover(d) {
  	 content
- 	 .html("<p>Zip Code: <b>" + d.properties.zip + "</b><br>Median Annual Income:<h2>$" + d.properties.income + "</h2></p>");
+ 	 .html("<p>Zip Code: <b>" + d.properties.zip + "</b><h1>Median Annual Income:</h1><h2>$" + d.properties.income + "</h2></p>");
 }
 
 
