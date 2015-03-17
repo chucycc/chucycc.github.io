@@ -15,18 +15,6 @@
 	src: url("fonts/2C13D7_1_0.eot?#iefix") format("embedded-opentype"), url("fonts/2C13D7_1_0.woff") format("woff"), url("fonts/2C13D7_1_0.ttf") format("truetype"), url("../img/2C13D7_1_0.svg") format("svg");
 }
 
-.d3-bar{
-  width: 20%;
-  position: absolute;
-  left: 0;
-  padding-top: 70px;
-}
-.d3-map{
-  width: 80%;
-  position: absolute;
-  right: 0;
-}
-
 .hospital {
 	fill:black;
 	stroke: #505050;
@@ -92,6 +80,16 @@
 	 padding-top: 10px;
 	 margin-top: -8px;
 }
+
+.textbox h3 {
+	 font-size: 18px;
+	 line-height: 18px;
+	 letter-spacing: -1px;
+	 overflow: visible;
+	 padding-top: 10px;
+	 margin-top: -8px;
+	 color:#92D400;
+}
 .textbox p {
 	line-height: 10px;
 	margin:0;
@@ -130,15 +128,55 @@
 	fill: #505050 ;
 	stroke: black;
 	stroke-width: 0.1px;
+	overflow: visible;
 }
 .barObj {
 	text-align:left;
 	padding-top:100px;
-	/*background:url("background.png") repeat repeat;*/
+}
+.barObj #tooltip {
+	color:red;
+	overflow: visible;
+}
+
+.barObj rect {
+	fill: url("background.png") repeat repeat;;
+	stroke: black;
+	stroke-width: .5px;
+	transition: fill 0.5s ease;
+	
 }
 .barObj rect:hover {
 	fill: white;
 	stroke: black;
 	stroke-width: .5px;
 	transition: fill 0.5s ease;
+	-moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+}
+.barObj #tooltip {
+				position: absolute;
+				width: 200px;
+				height: auto;
+				padding: 10px;
+				background-color: white;
+				-webkit-border-radius: 10px;
+				-moz-border-radius: 10px;
+				border-radius: 10px;
+				-webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+				-moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+				box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+				pointer-events: none;
+			}
+			
+.barObj #tooltip.hidden {
+	display: none;
+}
+
+.barObj #tooltip p {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 16px;
+	line-height: 20px;
 }
