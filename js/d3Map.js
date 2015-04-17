@@ -7,7 +7,7 @@
 		  height = width * mapRatio;
 
     var projection = d3.geo.mercator()
-      .center([-95, 40])
+      .center([-95, 38])
       .scale(width*0.9)
       .rotate([,]);
 
