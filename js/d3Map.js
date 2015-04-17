@@ -11,14 +11,6 @@
       .scale(width*0.9)
       .rotate([,]);
 
-/*    var projection = d3.geo.albersUsa()
-      .scale(1200)
-      .translate([width / 2 + 100, height / 2]);*/
-
-/*    var color = d3.scale.threshold()
-      .domain([20000,40000,60000,80000,100000,120000,160000,180000,200000])
-      .range(["#F7FFB3", "#ECFC70", "#C4FC70", "#9AD345", "#7DAE35", "#5A8021", "#436115", "#30470C", "#233705", "#192804"]);
-*/
 	var color = d3.scale.log()
       .domain([20000, 200000])
       .range(["yellow", "green"]);
@@ -47,17 +39,10 @@
 
     var g = svg.append("g")
     svg
-    .call(zoom) // delete this line to disable free zooming
+    //.call(zoom) // delete this line to disable free zooming
     .call(zoom.event);
 
     /*Zip infobox*/
-/*	var fo = svg.append('foreignObject') 
-    .attr({
-      'x': 50,
-      'y': 50,
-      'width': 400,
-      'height': height,
-      'class': 'fo-textbox'});*/
     var div = bar
       .append('div')
 	  .style("height",100)
@@ -70,13 +55,14 @@
 	  .attr("class", "textboxHSR");
 	var divBar = bar
 	  .append('div')
-	  .style("height", 300)
-	  .style("width", "100%")
+	  .style("height", 200)
+	  .style("width", 220)
 	  .attr("class","barObj");
     var divHS = bar
       .append('div')
 	  .style("height", 80)
 	  .style("width", "100%")
+	  .style("overflow", "visible")
       .attr("class", "textboxHS");
 
     var content = div.append("p");
@@ -143,15 +129,6 @@ function ready(error, us, hs) {
     .attr("y", height * 0.1)
     /*.text("hello");*/
 
-/*    var active = false;
-	g.selectAll(".point")
-		.data(topojson.feature(hs,hs.objects.tmp).features)
-      .enter().append("path")
-      .attr("class", "hospital")
-      .attr("d", path)
-      .on('mouseover', mouseoverHS)
-      .on('mouseout', mouseoutHS)
-      .on('click', clicked);*/
 };
 
 function zoomed() {
@@ -162,7 +139,6 @@ function mouseover(d) {
  	 content
  	 .html("<p>Zip Code: <b>" + d.properties.zip + "</b><h1>Median Annual Income:</h1><h2>$" + d.properties.income + "</h2></p>");
 }
-
 
 function mouseoverHS(d, i) {
 	active = false;
@@ -185,7 +161,7 @@ function mouseoverHS(d, i) {
 		x.domain(d.variables);
 		y.domain([0, 150]);
 	
-		var barWidth = width / 10;
+		var barWidth = width / 10 - 1;
 		var bar = svgHS.selectAll("g")
 		   .data(d.variables)
 		   .enter().append("g")
@@ -196,16 +172,35 @@ function mouseoverHS(d, i) {
 			return y(d.value); })
 		   .attr("height", function(d) { 
 			return height - y(d.value); })
-		   .attr("width", barWidth - 1)
-		  //Create the tooltip label
-		  
-		  /*bar.append("text")
-			.attr("transform","rotate(-90)")
-			.attr("x", barWidth / 2)
-			.attr("y", function(d){return y(d) -3;})
-			.attr("dy", ".7em")
-			.style("text-anchor","middle")
-			.text(function(d) { return d.value; })*/
+		   .attr("width", barWidth - 2)
+		   .attr("fill", function(d) {
+    			return "rgb(" + (d.value*10 - 850) + ", " + (d.value * 10 -800) + ",0)";
+			});
+		//bar chart tooltip numbers
+		bar.append("text")
+		   .attr("id","QuanNum")
+		   .attr("x", function(d, i) {
+				return (barWidth*0.25 - 5) * i + (barWidth*0.5 -1);
+		   })
+		   .attr("y", function(d) {
+				return y(d.value) - 3;
+		   })
+		   .text(function(d) {
+				return d.value;
+		   })
+		   .style("text-anchor","middle")
+		/* bar chart tooltip labels
+		bar.append("text")
+			.attr("x", function(d, i) {
+				return (barWidth*0.25 - 5) * i + (barWidth*0.5 -1);
+		   })
+		   .attr("y", function(d) {
+				return y(d.value) - 6;
+		   })
+		   .text(function(d) {
+				return d.variables;
+		   })
+		   .style("text-anchor","middle") */
 }
 
 function clicked(d,i) {
