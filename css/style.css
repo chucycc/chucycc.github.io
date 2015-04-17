@@ -1602,8 +1602,8 @@ th, td {
 	overflow: visible;
 }
 .scroll-down-arrow svg {
-	fill: #fff;
-	stroke: #fff;
+	fill: black;
+	stroke: black;
 	stroke-width: 0px;
 	stroke-linejoin: miter;
 }
@@ -2653,6 +2653,12 @@ form.checkout h2 {
 .med-3 {
 	width: 50%;
 }
+.med-5 {
+	width: 80%;
+}
+.med-1 {
+	width: 20%;
+}
 .med-stretch {
 	margin-right: -30px;
 	margin-left: -30px;
@@ -3265,4 +3271,4 @@ p, h2, h3 {
 h2, h3 {
 	page-break-after: avoid;
 }
-}
+
