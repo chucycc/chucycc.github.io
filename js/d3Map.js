@@ -81,7 +81,7 @@ function ready(error, us, hs) {
     var zoom = d3.behavior.zoom()
       .x(X)
       .y(Y)
-      .scaleExtent([1, 30])
+      .scaleExtent([1, 25])
       .on("zoom", zoomed);
 
     var zip = topojson.feature(us, us.objects.tl_2014_us_zcta510);
