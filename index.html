@@ -9,16 +9,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 <link rel='stylesheet' id='apparatus-style-css' href='css/style.css' type='text/css' media='all'/>
+<link rel="stylesheet" href="css/summary.css" type="text/css">
 <link rel='stylesheet' href='css/d3.css' type='text/css' media='all'/>
 <link rel="stylesheet" href="css/c3.css" type="text/css">
 <script type='text/javascript' src='js/jquery.js'></script>
 <script type='text/javascript' src='js/jquery-migrate.min.js'></script>
 <script type='text/javascript' src='js/modernizr.js'></script>
+<!-- chart test <script type='text/javascript' src='js/chartTest.js'></script>-->
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <link rel='canonical' href='http://'/>
 <link rel="alternate" type="application/rss+xml" title="New products" href="http://"/>
+<!-- chart test <link rel='ractive' href='TemperatureChart.html'> -->
 </head>
 <body class="single single-product postid-1460 woocommerce woocommerce-page">
 <div class="u-none"> <svg xmlns="http://www.w3.org/2000/svg">
@@ -108,7 +111,9 @@
     </div>
   </div>
   <div class="logo logo-overlay fade-in"> <a href="index.html"><img src="img/logo.svg" alt="Healt$care"></a></div>
-  <div class="l-content-wrap fade-in">
+  <div class="l-content-wrap fade-in"> <a class="svg scroll-down-arrow" style="padding:0px"><svg>
+    <use xlink:href="#icon-scroll-down-arrow"></use>
+    </svg></a>
     <div class="l-content full-w">
       <div class="row content-module sm-full-w">
         <div class="col-6">
@@ -118,6 +123,48 @@
             But does the spending improve the healthcare we receive? To explore the answer, we looked at how healthcare spending impacts healthcare quality.</p>
         </div>
       </div>
+      <!-- Final project development: summary data -->
+      <div class="row content-module sm-full-w slide-in" style="height:650">
+        <ul class="masonry-grid" style="position:relative">
+          <li class="item content-module col-1 slide-in" style="transform: translateY(0px);
+              height: 650px;
+              width: 21%;!important
+              position: absolute; 
+              left: 30px;
+              top: 0px;
+              border-top: 0.2px solid black;
+              overflow-y: scroll;
+              padding:10px 5px 10px 5px;
+              text-align:left;
+              background-color:rgba(201,33,36,0.38);
+              word-wrap: break-word; 
+              word-break: normal; ">
+            <h3>which areas/population are under-served?</h3>
+            <p></p>
+            <p>5555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558<br>
+              test<br>
+              test<br>
+              test<br>
+              test<br>
+              test<br>
+              test<br>
+              test<br>
+              test<br>
+              test<br>
+              test<br>
+              test<br>
+              test<br>
+              test<br>
+              test<br>
+            </p>
+          </li>
+          <li class="item content-module col-1 slide-in" id="rightFinal" style="transform: translateY(0px)"> 
+            <!--chart test--> 
+          </li>
+        </ul>
+      </div>
+      <li class="grid-sizer"></li>
+      <!-- summary texts from mid-term project -->
       <div class="row content-module sm-full-w product-nav">
         <div class="col-3 sm-full-w"> <a href="http://www.irs.gov/uac/SOI-Tax-Stats-Individual-Income-Tax-Statistics-2011-ZIP-Code-Data-%28SOI%29" class="button-solid u-full-w">Poverty Data</a> </div>
         <div class="col-3 sm-full-w"> <a href="https://data.medicare.gov/data/hospital-compare" class="button-solid u-full-w">Medicare Data</a> </div>
@@ -165,7 +212,7 @@
                   We measure healthcare quality by both objective (e.g. Influenza immunization rates) and subjective measures(e.g.Patients' perception of cleanliness).</h4>
                 <br>
                 <h4 style="font-size:smaller">Data Source:<br>
-                  Centers of Medicare and Medicaid Service;<br>Background Image Source:<br>apparatusstudio.com</h4>
+                  Centers of Medicare and Medicaid Service</h4>
               </div>
             </div>
           </li>
@@ -179,7 +226,10 @@
                     pay more?
                   </ul>
                 </h2>
-                <h4 style="text-align:right;padding-right:10px;color:white">The X-axis shows regional income <br>level from low to high. The yellow areas<br>show the regions with more high quality hospitals<br>than lower ones.</h4>
+                <h4 style="text-align:right;padding-right:10px;color:white">The X-axis shows regional income <br>
+                  level from low to high. The yellow areas<br>
+                  show the regions with more high quality hospitals<br>
+                  than lower ones.</h4>
               </div>
             </div>
           </li>
@@ -205,7 +255,6 @@
           </li>
         </ul>
       </div>
-      
       <div class="row content-module med-full-w med-stretch product-info-wrap">
         <div class="col-6">
           <div class="product-info">
@@ -245,12 +294,10 @@
           </div>
         </div>
       </div>
-      
     </div>
   </div>
   <footer class="l-footer footer fade-in"> <a href="info.html" class="hidden-phone">Data Analysis: What did we do?</a> <a href="http://chucycc.github.io/#" class="back-to-top">Back to top</a> </footer>
 </div>
- 
 <script type="text/javascript" src="js/add-to-cart.min.js"></script> 
 <script type="text/javascript">
 /* <![CDATA[ */
@@ -260,7 +307,6 @@ var wc_single_product_params = {"i18n_required_rating_text":"Please select a rat
 </script> 
 <script type="text/javascript" src="js/single-product.min.js"></script> 
 <script type="text/javascript" src="js/jquery.blockUI.min.js"></script> 
- 
 <script type="text/javascript" src="js/woocommerce.min.js"></script> 
 <script type="text/javascript" src="js/jquery.cookie.min.js"></script> 
 <script type="text/javascript">
