@@ -19,6 +19,7 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
+<script type='text/javascript' src='js/summary.js'></script>
 <link rel='canonical' href='http://'/>
 <link rel="alternate" type="application/rss+xml" title="New products" href="http://"/>
 <!-- chart test <link rel='ractive' href='TemperatureChart.html'> -->
@@ -103,7 +104,7 @@
 <div class="l-page-wrap">
   <div class="d3" style="width: 100%; margin-left:100px">
     <div class="d3-bar"></div>
-    <div class="d3-map" style="padding: 50px 0px 0px 0px"></div>
+    <div class="d3-map"></div>
   </div>
   <div class="hero hero-static" data-img-src="" data-img-sm="">
     <div class="inner" style="position: absolute; z-index: 0; background: none;">
@@ -143,6 +144,9 @@
             <p></p>
             <p>5555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558<br>
               test<br>
+             <a href="#" onclick="toggle('sum1');">Show me</a><br>
+             <a href="#" onclick="toggle('sum2');">Show me</a><br>
+             <a href="#" onclick="toggle('sum3');">Show me</a><br>
               test<br>
               test<br>
               test<br>
@@ -159,7 +163,9 @@
             </p>
           </li>
           <li class="item content-module col-1 slide-in" id="rightFinal" style="transform: translateY(0px)"> 
-            <!--chart test--> 
+            <div class="article" id="sum1" style="display:none;">Chart 1</div>
+           <div class="article" id="sum2" style="display:none;">Chart 2</div>
+           <div class="article" id="sum3" style="display:none;">Chart 3</div> 
           </li>
         </ul>
       </div>
