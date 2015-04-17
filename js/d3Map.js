@@ -142,6 +142,12 @@ function ready(error, us, hs) {
   	landbound.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
   	zipregion.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
   	circle.attr("transform", transform);
+  	if (d3.event.scale > 5) {
+  		circle.attr("r", 3.6);
+  	}
+  	else {
+  		circle.attr("r", 1.8);
+  	};
 	}
   	function transform(d) {
   	  return "translate(" + X(projection([d.lng, d.lat])[0]) + "," + Y(projection([d.lng, d.lat])[1]) + ")";
