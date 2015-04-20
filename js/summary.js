@@ -18,16 +18,21 @@ function toggle(target){
 // Summary layout
 var margin = {top: 10, left: 10, bottom: 10, right: 10},
 	height = 500,
-	width = 800;
+	width = 500;
 
-var summary1 = d3.select("div#sum1.article")
- 	.append("chart1")
+var summary1 = d3.select("sum1")
+ 	.append("div")
+	.attr("class", "parcoords")
+	.attr("id", "example")
 	.style("height", height)
-	.attr("width", width)
-	.attr("background-color", black);
+	.style("width", width)
+	.append("div")
+	.attr("id","grid");
 
 var summary2 = d3.select("div#sum2.article")
-	.append("chart2")
-	.attr("width", width)
-	.attr("height", height)
+	.append("div")
+	.attr("class", "chart2")
+	.style("width", width)
+	.style("height", height)
 
+// Parallel Corrdinates //

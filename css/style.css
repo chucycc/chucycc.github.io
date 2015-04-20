@@ -375,6 +375,11 @@ body {
 	height: 100%;
 }
 
+.d3 {
+	width: 100%;
+	padding-top: 70px;
+}
+
 ::-moz-selection {
 background:#000;
 color:#fff;
@@ -3267,3 +3272,10 @@ h2, h3 {
 	page-break-after: avoid;
 }
 
+/* for the table in parallel coordinates chart */
+#grid { height: 198px; }
+.row, .header { clear: left; font-size: 12px; line-height: 18px; height: 18px; }
+.row:nth-child(odd) { background: rgba(0,0,0,0.05); }
+.header { font-weight: bold; }
+.cell { float: left; overflow: hidden; white-space: nowrap; width: 100px; height: 18px; }
+.col-0 { width: 180px; }

@@ -7,7 +7,7 @@
 		  height = width * mapRatio;
 
     var projection = d3.geo.mercator()
-      .center([-95, 37])
+      .center([-95, 38])
       .scale(width*0.9)
       .rotate([,]);
 
@@ -25,7 +25,7 @@
 
     var path = d3.geo.path()
       .projection(projection)
-
+ //     .pointRadius(1.8); /* hospital dot radius */
  	var bar = d3.select("div.d3-bar")
  	.style("height", height);
 
@@ -50,7 +50,11 @@
 	  .style("height",100)
 	  .style("width","100%")
       .attr("class", "textbox");
-
+	var divHSrank = bar
+	  .append('div')
+	  .style("height", 80)
+	  .style("width", "100%")
+	  .attr("class", "textboxHSR");
 	var divBar = bar
 	  .append('div')
 	  .style("height", 200)

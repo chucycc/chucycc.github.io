@@ -15,11 +15,14 @@
 <script type='text/javascript' src='js/jquery.js'></script>
 <script type='text/javascript' src='js/jquery-migrate.min.js'></script>
 <script type='text/javascript' src='js/modernizr.js'></script>
-<!-- chart test <script type='text/javascript' src='js/chartTest.js'></script>-->
+<link rel="stylesheet" type="text/css" href="css/d3.parcoords.css">
+<!-- for the parallel coordinates chart -->
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
-<script type='text/javascript' src='js/summary.js'></script>
+<script type='text/javascript' src='js/summary.js'></script><!-- for summary charts -->
+<script src="js/d3.parcoords.js"></script><!-- for the parallel coordinates chart -->
+<script src="js/divgrid.js"></script>
 <link rel='canonical' href='http://'/>
 <link rel="alternate" type="application/rss+xml" title="New products" href="http://"/>
 <!-- chart test <link rel='ractive' href='TemperatureChart.html'> -->
@@ -104,7 +107,7 @@
 <div class="l-page-wrap">
   <div class="d3" style="width: 100%; margin-left:100px">
     <div class="d3-bar"></div>
-    <div class="d3-map"></div>
+    <div class="d3-map" style="padding: 50px 0px 0px 0px"></div>
   </div>
   <div class="hero hero-static" data-img-src="" data-img-sm="">
     <div class="inner" style="position: absolute; z-index: 0; background: none;">
@@ -144,10 +147,12 @@
             <p></p>
             <p>5555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558<br>
               test<br>
-             <a href="#" onclick="toggle('sum1');">Show me</a><br>
-             <a href="#" onclick="toggle('sum2');">Show me</a><br>
-             <a href="#" onclick="toggle('sum3');">Show me</a><br>
-              test<br>
+              <a href="#" onclick="toggle('sum1');">Show me</a><br>
+              <a href="#" onclick="toggle('sum2');">Show me</a><br>
+              <a href="#" onclick="toggle('sum3');">Show me</a><br>
+              <a href="#" onclick="toggle('sum4');">Show me</a><br>
+              Plot Matrix<br>
+              <a href="#" onclick="toggle('sum5');">Show me</a><br>
               test<br>
               test<br>
               test<br>
@@ -161,11 +166,13 @@
               test<br>
               test<br>
             </p>
-          </li>
-          <li class="item content-module col-1 slide-in" id="rightFinal" style="transform: translateY(0px)"> 
-            <div class="article" id="sum1" style="display:none;">Chart 1</div>
-           <div class="article" id="sum2" style="display:none;">Chart 2</div>
-           <div class="article" id="sum3" style="display:none;">Chart 3</div> 
+            <!--</li>-->
+          <li class="item content-module col-1 slide-in" id="rightFinal" style="transform: translateY(0px)">
+            <div class="article" id="sum1" style="display:none;">Chart 1: map and drag bar -- exploring regional hospital density and so</div>
+            <div class="article" id="sum2" style="display:none;"><a href="mapByRegion.html">Chart 2: region map -- prediction of medicare effiecency by region<br> by state (?)</a></div>
+            <div class="article" id="sum3" style="display:none;"><a href="scatter.html">Chart 3: scatter plot -- hight spending ?= lower effeciency</a></div>
+            <div class="article" id="sum4" style="display:none;"><a href="paraCo.html">Chart 4: parcoords hospital~state~regional income~quality</a></div>
+            <div class="article" id="sum5" style="display:none;"><a href="plotMatrix.html">Chart 5: plot matrix -- hospital quality measures</a></div>
           </li>
         </ul>
       </div>
@@ -346,4 +353,6 @@ var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","fragmen
   <iframe class="gr-freemium-ifr"></iframe>
 </div>
 <script src="js/d3Map.js"></script>
+
+
 </html>
