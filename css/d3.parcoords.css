@@ -31,10 +31,9 @@ body {
 }
 
 #example {
-	height: 550px;
-	width: 700px;
+	z-index:999;
+	height: 435px;
 	text-align: center;
-	margin:10px 20px 10px 20px;
 }
 .parcoords > svg, .parcoords > canvas {
 	line-height: 2.4;
@@ -88,32 +87,42 @@ body {
 }
 /* data table styles */
 #grid {
-	height: 198px;
-	width: 600px;
+	height: 100px;
 	text-align:center;
-	margin:0px 20px 10px 20px;
 }
-.row, .header {
+.gridrow {
 	clear: left;
 	font-size: 10px;
 	height: 18px;
 }
-.row:nth-child(odd) {
+.gridrow:nth-child(odd) {
 	background: rgba(0,0,0,0.05);
 }
-.header {
+.gridheader {
 	font-weight: bold;
-	font-size: 10px;
+	font-size: 8px;
 	height: 30px;
+	letter-spacing: 0.2em;
 	line-height: 12px;
+	overflow:visible;
+	padding: 0px 0px 0px 0px;
 }
 .cell {
-	float: left;
 	overflow: visible;
-	width:60px;
+	width:initial;
+	padding: 0px 0px 0px 0px;
 	height: 18px;
 }
-.col-0 {
-	white-space: nowrap;
-	width: 250px;
+[class*="gridcol-"] {
+	width: 50px;
+	float:right;
 }
+.gridcol-0 {
+	min-width:320px;
+	float: left;
+}
+.gridcol-7 {
+	width:20px;
+}
+
+

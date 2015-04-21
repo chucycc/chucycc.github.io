@@ -142,7 +142,7 @@ table {
 	position: relative;
 	background-color: #f2f2f2;
 	border: 1px solid #000000;
-	padding: 17px 40px 13px 17px;
+	padding: 7px 40px 3px 17px;
 	-o-text-overflow: ellipsis;
 	text-overflow: ellipsis;
 }
@@ -182,9 +182,10 @@ table {
 .dk-select-options {
 	width: 100%;
 	z-index: 100;
+	font-size:10px;
 	background-color: #f2f2f2;
 	border: 1px solid #000000;
-	overflow-x: hidden;
+	overflow-x: visible;
 	overflow-y: auto;
 	max-height: 20.9em;
 	list-style: none;
@@ -199,10 +200,10 @@ table {
 	color: inherit;
 }
 .dk-option {
-	padding: 17px 20px 13px 10px;
+	padding: 7px 40px 3px 17px;
 }
 .dk-select-options .dk-option-highlight {
-	background-color: #000000;
+	background-color: #92D400;
 	color: #fff;
 }
 .dk-select-options .dk-option-disabled {
@@ -374,7 +375,6 @@ body {
 	text-align: center;
 	height: 100%;
 }
-
 .d3 {
 	width: 100%;
 	padding-top: 70px;
@@ -866,8 +866,8 @@ a.grid-module:hover .hover-tint, .expander.active .hover-tint {
 	font-size: 0.9rem;
 }
 .simple-page-content p {
-	margin-bottom:10px;
-	text-transform:uppercase;
+	margin-bottom: 10px;
+	text-transform: uppercase;
 	text-align: justify;
 }
 .simple-page-content li {
@@ -1064,7 +1064,7 @@ th, td {
 	height: 100%;
 }
 .hero-home {
-	/*padding-bottom: 47.14286%;*/
+/*padding-bottom: 47.14286%;*/
 }
 .hero-title {
 	position: absolute;
@@ -3228,8 +3228,7 @@ opacity:1;
 :-ms-input-placeholder {
 color:#000;
 }
-
-@media print {
+ @media print {
 * {
 	background: transparent!important;
 	color: #000!important;
@@ -3271,11 +3270,3 @@ p, h2, h3 {
 h2, h3 {
 	page-break-after: avoid;
 }
-
-/* for the table in parallel coordinates chart */
-#grid { height: 198px; }
-.row, .header { clear: left; font-size: 12px; line-height: 18px; height: 18px; }
-.row:nth-child(odd) { background: rgba(0,0,0,0.05); }
-.header { font-weight: bold; }
-.cell { float: left; overflow: hidden; white-space: nowrap; width: 100px; height: 18px; }
-.col-0 { width: 180px; }
