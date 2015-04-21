@@ -6,20 +6,20 @@ d3.divgrid = function(config) {
     if (columns.length == 0) columns = d3.keys(selection.data()[0][0]);
 
     // header
-    selection.selectAll(".header")
+    selection.selectAll(".gridheader")
         .data([true])
       .enter().append("div")
-        .attr("class", "header")
+        .attr("class", "gridheader")
 
-    var header = selection.select(".header")
+    var header = selection.select(".gridheader")
       .selectAll(".cell")
       .data(columns);
 
     header.enter().append("div")
-      .attr("class", function(d,i) { return "col-" + i; })
+      .attr("class", function(d,i) { return "gridcol-" + i; })
       .classed("cell", true)
 
-    selection.selectAll(".header .cell")
+    selection.selectAll(".gridheader .cell")
       .text(function(d) { return d; });
 
     header.exit().remove();
@@ -29,16 +29,16 @@ d3.divgrid = function(config) {
         .data(function(d) { return d; })
 
     rows.enter().append("div")
-        .attr("class", "row")
+        .attr("class", "gridrow")
 
     rows.exit().remove();
 
-    var cells = selection.selectAll(".row").selectAll(".cell")
+    var cells = selection.selectAll(".gridrow").selectAll(".cell")
         .data(function(d) { return columns.map(function(col){return d[col];}) })
 
     // cells
     cells.enter().append("div")
-      .attr("class", function(d,i) { return "col-" + i; })
+      .attr("class", function(d,i) { return "gridcol-" + i; })
       .classed("cell", true)
 
     cells.exit().remove();
