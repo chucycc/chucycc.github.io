@@ -1,41 +1,82 @@
-.parcoords > svg, .parcoords > canvas { 
-  font: 14px sans-serif;
-  position: absolute;
+@font-face {
+	font-family: 'BrandonGrotesque';
+	font-weight: normal;
+	font-style: normal;
+	src: url("fonts/2C13D7_0_0.eot");
+	src: url("fonts/2C13D7_0_0.eot") format("embedded-opentype"), url("fonts/2C13D7_0_0.woff") format("woff"), url("fonts/2C13D7_0_0.ttf") format("truetype"), url("../img/2C13D7_0_0.svg") format("svg");
+}
+@font-face {
+	font-family: 'BrandonGrotesque';
+	font-weight: bold;
+	font-style: normal;
+	src: url("fonts/2C13D7_1_0.eot");
+	src: url("fonts/2C13D7_1_0.eot?#iefix") format("embedded-opentype"), url("fonts/2C13D7_1_0.woff") format("woff"), url("fonts/2C13D7_1_0.ttf") format("truetype"), url("../img/2C13D7_1_0.svg") format("svg");
+}
+html, body {
+	font-size: 11px;
+}
+body {
+	line-height: 2.4;
+	color: #000;
+	font-family: "BrandonGrotesque", Helvetica, Arial, sans-serif;
+	letter-spacing: 0.23em;
+	text-transform: uppercase;
+}
+
+.chartTitle {
+	height: 30px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#example {
+	height: 550px;
+	width: 700px;
+	text-align: center;
+	margin:10px 20px 10px 20px;
+}
+.parcoords > svg, .parcoords > canvas {
+	line-height: 2.4;
+	color: #000;
+	font-size: 10px;
+	font-family: "BrandonGrotesque", Helvetica, Arial, sans-serif;
+	letter-spacing: 0.1em;
+	position: absolute;
 }
 .parcoords > canvas {
-  pointer-events: none;
+	pointer-events: none;
 }
-
 .parcoords text.label {
-  cursor: default;
+	cursor: default;
+	font-weight: bolder;
 }
-
 .parcoords rect.background {
-  fill: transparent;
+	fill: transparent;
 }
 .parcoords rect.background:hover {
-  fill: rgba(120,120,120,0.2);
+	fill: rgba(120,120,120,0.2);
 }
 .parcoords .resize rect {
-  fill: rgba(0,0,0,0.1);
+	fill: rgba(0,0,0,0.1);
 }
 .parcoords rect.extent {
-  fill: rgba(255,255,255,0.25);
-  stroke: rgba(0,0,0,0.6);
+	fill: rgba(255,255,255,0.25);
+	stroke: rgba(0,0,0,0.6);
 }
 .parcoords .axis line, .parcoords .axis path {
-  fill: none;
-  stroke: #222;
-  shape-rendering: crispEdges;
+	fill: none;
+	stroke: black;
+	shape-rendering: crispEdges;
 }
 .parcoords canvas {
-  opacity: 1;
-  -moz-transition: opacity 0.3s;
-  -webkit-transition: opacity 0.3s;
-  -o-transition: opacity 0.3s;
+	opacity: 1;
+	-moz-transition: opacity 0.3s;
+	-webkit-transition: opacity 0.3s;
+	-o-transition: opacity 0.3s;
 }
 .parcoords canvas.faded {
-  opacity: 0.25;
+	opacity: 0.25;
 }
 .parcoords {
 	-webkit-touch-callout: none;
@@ -44,4 +85,35 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+/* data table styles */
+#grid {
+	height: 198px;
+	width: 600px;
+	text-align:center;
+	margin:0px 20px 10px 20px;
+}
+.row, .header {
+	clear: left;
+	font-size: 10px;
+	height: 18px;
+}
+.row:nth-child(odd) {
+	background: rgba(0,0,0,0.05);
+}
+.header {
+	font-weight: bold;
+	font-size: 10px;
+	height: 30px;
+	line-height: 12px;
+}
+.cell {
+	float: left;
+	overflow: visible;
+	width:60px;
+	height: 18px;
+}
+.col-0 {
+	white-space: nowrap;
+	width: 250px;
 }
