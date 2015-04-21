@@ -30,6 +30,14 @@
 	background-color:rgba(68,162,244,0.50);
 }
 
+.state-boundary {
+  fill: #eee;
+  stroke: #505050;
+  stroke-width: .2px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
 /*
 div::-webkit-scrollbar{
 	width:0.2px;
