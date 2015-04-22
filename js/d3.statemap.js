@@ -1,5 +1,5 @@
-var statemap_width = 500,
-    statemap_height = 300;
+var statemap_width = 600,
+    statemap_height = 400;
 
 
 var state_svg = d3.select("div.state-map")
@@ -9,7 +9,7 @@ var state_svg = d3.select("div.state-map")
 var state_g = state_svg.append("g");
 
 var state_projection = d3.geo.albersUsa()
-    .scale(500)
+    .scale(700)
     .translate([statemap_width / 2, statemap_height / 2]);
 
 var state_path = d3.geo.path()
@@ -27,7 +27,7 @@ d3.json("us2.json", function(error, us) {
       .data(topojson.feature(us, us.objects.states).features)
     .enter().append("path")
       .attr("d", state_path)
-      .attr("class", "state-boundary")
+      .attr("class", "region-map")
       .attr("transform", function(d) {
       	if (d.id > 0 && d.id < 57){
         	var index = region[d.id],

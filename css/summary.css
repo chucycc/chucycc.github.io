@@ -30,7 +30,7 @@
 	background-color:rgba(68,162,244,0.50);
 }
 
-.state-boundary {
+.region-map {
   fill: #eee;
   stroke: #505050;
   stroke-width: .2px;

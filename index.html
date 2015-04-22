@@ -176,7 +176,9 @@
               by state (?)</a></div>
             <div class="article" id="sum3" style="display:none;"><!--<a href="scatter.html">Chart 3: scatter plot -- hight spending ?= lower effeciency</a>--><div id="scatter" style="height:580px; width: 90%"></div></div>
             <div class="article" id="sum4" style="display:none;"><!--<a style="href="paraCo.html">Chart 4: parcoords hospital~state~regional income~quality</a>-->
-              <div style="width:200px;float:left; z-index:9">
+
+              <div id="example" class="parcoords" style="background-color: rgba(180,180,180,0.74)"></div>
+              <div style="width:200px; z-index:9">
                 <select id="selectedState">
                   <option value="AL">Alabama</option>
                   <option value="AK">Alaska</option>
@@ -231,8 +233,7 @@
                   <option value="WY">Wyoming</option>
                 </select>
               </div>
-              <div id="example" class="parcoords" style="background-color: rgba(180,180,180,0.74)"></div>
-              <div id="grid"></div>
+              <div id="grid" style="overflow-y: scroll"></div>
             </div>
             <div class="article" id="sum5" style="display:none;"><a href="plotMatrix.html">Chart 5: plot matrix -- hospital quality measures</a><div id="matrix"></div></div>
           </li>
@@ -562,56 +563,6 @@ setTimeout(function () {
     });
 }, 3000);
 </script>
-<!-- parallel coordinate chart -->
-<script>
-var chosen = document.getElementById("selectedState");
-var selectedState = chosen.options[chosen.selectedIndex].value;
-var blue_to_brown = d3.scale.linear()
-  .domain([0, 50])
-  .range(["orange", "#92D400"])
-  .interpolate(d3.interpolateLab);
-
-var color = function(d) { return blue_to_brown(d['Hospital Performance']); };
-
-var parcoords = d3.parcoords()("#example")
-  .color(color)
-  .alpha(0.4);
-  
-// load csv file and create the chart
-	d3.csv('paraCo.csv', function(data) {
-	data = data.filter(function(row) {
-		return row['State'] == selectedState;
-    })
-  parcoords
-    .data(data)
-    .hideAxis(["name"])
-	.hideAxis(["ZIP Code"])
-	.hideAxis(["State"])
-    .render()
-    .brushMode("1D-axes"); // enable brushing
-
-  // create data table, row hover highlighting
-  var grid = d3.divgrid();
-  d3.select("#grid")
-    .datum(data.slice(0,10))
-    .call(grid)
-    .selectAll(".row")
-    .on({
-      "mouseover": function(d) { parcoords.highlight([d]) },
-      "mouseout": parcoords.unhighlight
-    });
-	  parcoords.on("brush", function(d) {
-    d3.select("#grid")
-      .datum(d.slice(0,10))
-      .call(grid)
-      .selectAll(".row")
-      .on({
-        "mouseover": function(d) { parcoords.highlight([d]) },
-        "mouseout": parcoords.unhighlight
-      });
-  });
-});
-</script>
 <script type="text/javascript">
 /* <![CDATA[ */
 var wc_single_product_params = {"i18n_required_rating_text":"Please select a rating","review_rating_required":"yes"};
@@ -630,7 +581,7 @@ var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","fragmen
 </script> 
 <script type="text/javascript" src="js/cart-fragments.min.js"></script> 
 <script type="text/javascript" src="js/plugins.js"></script> 
-<script type="text/javascript" src="js/site.js"></script> 
+<script type="text/javascript" src="js/site.js"></script>
 <script>
     var _gaq=[['_setAccount','UA-35779223-7'],['_trackPageview']];
     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

@@ -33,7 +33,6 @@ body {
 #example {
 	z-index:999;
 	height: 435px;
-	text-align: center;
 }
 .parcoords > svg, .parcoords > canvas {
 	line-height: 2.4;
@@ -87,7 +86,7 @@ body {
 }
 /* data table styles */
 #grid {
-	height: 100px;
+	height: 150px;
 	text-align:center;
 }
 .gridrow {
