@@ -15,8 +15,17 @@ function toggle(target){
 
   // to show Parallel Corrdinates
   if (targ.id === "sum4") {
-    var chosen = document.getElementById("selectedState");
-    var selectedState = chosen.options[chosen.selectedIndex].value;
+    update_para();
+  }
+  return false;
+}
+
+function update_para(){
+  d3.select("#example").html("");
+  d3.select("#grid").html("");
+  var chosen = document.getElementById("selectedState");
+  var selectedState = chosen.value;
+    console.log(selectedState);
     var blue_to_brown = d3.scale.linear()
       .domain([0, 50])
       .range(["orange", "#92D400"])
@@ -62,8 +71,6 @@ function toggle(target){
         });
     });
     });
-  }
-  return false;
 }
 
 // Summary layout
