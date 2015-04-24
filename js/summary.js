@@ -46,7 +46,7 @@ var parcoords = d3.parcoords()("#example")
   d3.select("#grid")
     .datum(data.slice(0,10))
     .call(grid)
-    .selectAll(".row")
+    .selectAll(".gridrow")
     .on({
       "mouseover": function(d) { parcoords.highlight([d]) },
       "mouseout": parcoords.unhighlight
@@ -57,7 +57,7 @@ var parcoords = d3.parcoords()("#example")
     d3.select("#grid")
       .datum(d.slice(0,10))
       .call(grid)
-      .selectAll(".row")
+      .selectAll(".gridrow")
       .on({
         "mouseover": function(d) { parcoords.highlight([d]) },
         "mouseout": parcoords.unhighlight
