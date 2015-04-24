@@ -20,12 +20,13 @@
   position: absolute;
   left: 0;
   padding-top:70px;
-  padding-left: 70px;
+  padding-left: 50px;
 }
 .d3-map{
   width: 80%;
   position: absolute;
   right: 0;
+  padding-top:50px;
 }
 
 .hospital {
@@ -76,6 +77,11 @@
         -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
         box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);*/
 }
+
+div .textbox {
+	width: 95%;
+}
+
 .textbox h1 {
 	 font-size: 24px;
 	 line-height: 16px;

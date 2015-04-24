@@ -953,6 +953,7 @@ th, td {
 }
 .col-3 {
 	width: 50%;
+	text-align: center;
 }
 .col-4 {
 	width: 66.66667%;
@@ -962,7 +963,9 @@ th, td {
 }
 .col-6 {
 	width: 100%;
+	text-align: center;
 }
+
 .row .prefix-1 {
 	margin-left: 16.66667%;
 }
@@ -1582,6 +1585,10 @@ th, td {
 	display: inline-block;
 	margin: 0 25px;
 }
+div .l-footer {
+	text-align: center;
+}
+
 .home .l-content {
 	padding-top: 60px;
 }
@@ -1605,6 +1612,9 @@ th, td {
 	stroke: black;
 	stroke-width: 0px;
 	stroke-linejoin: miter;
+}
+.scroll-down-div {
+	text-align: center;
 }
 .brand-grid a {
 	font-weight: 700;

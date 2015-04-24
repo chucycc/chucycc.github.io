@@ -48,7 +48,6 @@
     var div = bar
       .append('div')
 	  .style("height",100)
-	  .style("width","100%")
       .attr("class", "textbox");
 	var divHSrank = bar
 	  .append('div')
