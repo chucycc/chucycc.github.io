@@ -12,7 +12,7 @@
 	overflow-y: scroll;
 	padding:5px 0px 5px 0px;
 	text-align:left;
-	background-color:rgba(201,33,36,0.38);
+	background-color:rgba(242,242,242,0.5);
 }
 #leftFinal p{
 	word-wrap: break-word; 
@@ -27,7 +27,7 @@
 	float:right;
 	right: 30px; 
 	top: 0px;
-	background-color:rgba(68,162,244,0.50);
+	background-color:rgba(242,242,242,0.2);
 }
 
 .region-map {
@@ -69,7 +69,7 @@ div::-webkit-scrollbar-thumb:vertical{
   stroke: #ddd;
 }
 
-.axis path {
+#matrix .axis path {
   display: none;
 }
 

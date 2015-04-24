@@ -25,7 +25,7 @@ d3.divgrid = function(config) {
     header.exit().remove();
 
     // rows
-    var rows = selection.selectAll(".row")
+    var rows = selection.selectAll(".gridrow")
         .data(function(d) { return d; })
 
     rows.enter().append("div")
