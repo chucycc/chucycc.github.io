@@ -72,3 +72,8 @@ var summary2 = d3.select("div#sum2.article")
 	.append("div")
 	.attr("class", "state-map");
 
+// Text scroll down
+function smallscroll(target) {
+  $('html,body,div').animate({ scrollTop: $(target+'1').offset().top }, 'slow');
+  return false;
+}
