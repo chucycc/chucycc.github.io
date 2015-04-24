@@ -107,7 +107,7 @@
 <div class="l-page-wrap">
   <div class="d3" style="width: 100%; margin-left:100px">
     <div class="d3-bar"></div>
-    <div class="d3-map"></div>
+    <div class="d3-map" style="padding: 50px 0px 0px 0px"></div>
   </div>
   <div class="hero hero-static" data-img-src="" data-img-sm="">
     <div class="inner" style="position: absolute; z-index: 0; background: none;">
@@ -142,14 +142,18 @@
               text-align:left;
               background-color:rgba(201,33,36,0.38);
               word-wrap: break-word; 
-              word-break: normal; ">
-            <h3>which areas/population are under-served?</h3>
+              word-break: normal; 
+              -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+   			  -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+              box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4); ">">
+            <h3>which areas are medically under-served?</h3>
             <p></p>
             <p>5555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558555585555855558<br>
               map1<br>
               <a href="#" onclick="toggle('sum1');">Show me</a><br>
               map2<br>
               <a href="#" onclick="toggle('sum2');">Show me</a><br>
+              <div style="height:10px;width:30px;background-image:url(css/background.png) repeat-x repeat-y" onClick="smallscroll('text1')"></div>
               Scatter plot<br>
               <a href="#" onclick="toggle('sum3');">Show me</a><br>
               Parallel Coordinates<br>
@@ -158,6 +162,7 @@
               <a href="#" onclick="toggle('sum5');">Show me</a><br>
               test<br>
               test<br>
+              <a id="text11"></a>
               test<br>
               test<br>
               test<br>
@@ -174,11 +179,9 @@
             <div class="article" id="sum1" style="display:none;">Chart 1: map and drag bar -- exploring regional hospital density and so</div>
             <div class="article" id="sum2" style="display:none;"><a href="mapByRegion.html">Chart 2: region map -- prediction of medicare effiecency by region<br>
               by state (?)</a></div>
-            <div class="article" id="sum3" style="display:none;"><!--<a href="scatter.html">Chart 3: scatter plot -- hight spending ?= lower effeciency</a>--><div id="scatter" style="height:580px; width: 90%"></div></div>
-            <div class="article" id="sum4" style="display:none;"><!--<a style="href="paraCo.html">Chart 4: parcoords hospital~state~regional income~quality</a>-->
-
-              <div id="example" class="parcoords" style="background-color: rgba(180,180,180,0.74)"></div>
-              <div style="width:200px; z-index:9">
+            <div class="article" id="sum3" style="display:none;"><!--<a href="scatter.html">Chart 3: scatter plot -- hight spending ?= lower effeciency</a>--><div id="scatter"></div></div>
+            <div class="article" id="sum4" style="display:none;"><a href="paraCo.html">Chart 4: parcoords hospital~state~regional income~quality</a>
+              <div style="float:left; padding-top:10px; padding-left: 10px;width:200px; z-index:9">
                 <select id="selectedState">
                   <option value="AL">Alabama</option>
                   <option value="AK">Alaska</option>
@@ -232,7 +235,8 @@
                   <option value="WI">Wisconsin</option>
                   <option value="WY">Wyoming</option>
                 </select>
-              </div>
+              </div><br>
+              <div id="example" class="parcoords"></div>
               <div id="grid" style="overflow-y: scroll"></div>
             </div>
             <div class="article" id="sum5" style="display:none;"><a href="plotMatrix.html">Chart 5: plot matrix -- hospital quality measures</a><div id="matrix"></div></div>
@@ -396,8 +400,7 @@ var yAxis = d3.svg.axis()
     .orient("left")
     .ticks(5);
 
-var color = d3.scale.category10();
-
+var matrixColor = d3.scale.category10();
 
 d3.csv("plotMatrix.csv", function(error, data) {
   var domainByTrait = {},
@@ -428,6 +431,7 @@ d3.csv("plotMatrix.csv", function(error, data) {
       .data(traits)
     .enter().append("g")
       .attr("class", "x axis")
+	  .style("stroke", "grey")
       .attr("transform", function(d, i) { return "translate(" + (n - i - 1) * size + ",0)"; })
       .each(function(d) { x.domain(domainByTrait[d]); d3.select(this).call(xAxis); });
 
@@ -435,6 +439,7 @@ d3.csv("plotMatrix.csv", function(error, data) {
       .data(traits)
     .enter().append("g")
       .attr("class", "y axis")
+	  .style("stroke", "grey")
       .attr("transform", function(d, i) { return "translate(0," + i * size + ")"; })
       .each(function(d) { y.domain(domainByTrait[d]); d3.select(this).call(yAxis); });
 
@@ -462,6 +467,8 @@ d3.csv("plotMatrix.csv", function(error, data) {
 
     cell.append("rect")
         .attr("class", "frame")
+	    .style("fill","none")
+	    .style("stroke","#aaa")
         .attr("x", padding / 2)
         .attr("y", padding / 2)
         .attr("width", size - padding)
@@ -473,7 +480,7 @@ d3.csv("plotMatrix.csv", function(error, data) {
         .attr("cx", function(d) { return x(d[p.x]); })
         .attr("cy", function(d) { return y(d[p.y]); })
         .attr("r", 3)
-        .style("fill", function(d) { return color(d.spending); });
+        .style("fill", function(d) { return matrixColor(d.spending); });
   }
 
   var brushCell;
