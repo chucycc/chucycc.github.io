@@ -15,29 +15,37 @@ function toggle(target){
 
   // to show Parallel Corrdinates
   if (targ.id === "sum4") {
-    var chosen = document.getElementById("selectedState");
-var selectedState = chosen.options[chosen.selectedIndex].value;
-var blue_to_brown = d3.scale.linear()
+    update_para();
+  }
+  return false;
+}
+
+function update_para() {
+  d3.select("#example").html("");
+  d3.select("#grid").html("");
+  var chosen = document.getElementById("selectedState");
+  var selectedState = chosen.value;
+  var blue_to_brown = d3.scale.linear()
   .domain([0, 50])
   .range(["orange", "#92D400"])/*"#92D400"*/
   .interpolate(d3.interpolateLab);
 
-var color = function(d) { return blue_to_brown(d['Hospital Performance']); };
+  var color = function(d) { return blue_to_brown(d['Hospital Performance']); };
 
-var parcoords = d3.parcoords()("#example")
-  .color(color)
-  .alpha(0.4);
+  var parcoords = d3.parcoords()("#example")
+    .color(color)
+    .alpha(0.4);
   
 // load csv file and create the chart
-	d3.csv('paraCo.csv', function(data) {
-	data = data.filter(function(row) {
-		return row['State'] == selectedState;
+  d3.csv('paraCo.csv', function(data) {
+  data = data.filter(function(row) {
+    return row['State'] == selectedState;
     })
   parcoords
     .data(data)
     .hideAxis(["name"])
-	.hideAxis(["ZIP Code"])
-	.hideAxis(["State"])
+  .hideAxis(["ZIP Code"])
+  .hideAxis(["State"])
     .render()
     .brushMode("1D-axes"); // enable brushing
 
@@ -64,8 +72,6 @@ var parcoords = d3.parcoords()("#example")
         });
     });
     });
-  }
-  return false;
 }
 
 // Summary layout
