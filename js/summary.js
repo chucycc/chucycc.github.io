@@ -158,9 +158,14 @@ function update_para() {
 
 // Summary layout
 
+var summary1 = d3.select("div#sum1.article")
+  .append("div")
+  .attr("class", "density-map");
+
 var summary2 = d3.select("div#sum2.article")
 	.append("div")
 	.attr("class", "state-map");
+
 
 // Scatter Plot Matrix
 
