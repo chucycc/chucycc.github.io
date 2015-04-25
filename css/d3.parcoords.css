@@ -98,13 +98,23 @@ body {
 	background: rgba(0,0,0,0.05);
 }
 .gridheader {
-	font-weight: bold;
-	font-size: 8px;
+	color:white;
+	font-size: 10px;
 	height: 30px;
-	letter-spacing: 0.2em;
 	line-height: 12px;
-	overflow:visible;
 	padding: 0px 0px 0px 0px;
+	vertical-align:central;
+	text-align:center;
+}
+.gridheader .cell:hover {
+	color:black;
+	font-weight:bolder;
+	letter-spacing: 0.2em;
+	overflow:visible;
+	z-index:99;
+	transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
 }
 .cell {
 	overflow: visible;

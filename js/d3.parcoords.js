@@ -4,7 +4,7 @@ d3.parcoords = function(config) {
     highlighted: [],
     dimensions: [],
     dimensionTitles: {},
-    dimensionTitleRotation: 0,
+    dimensionTitleRotation: -5,
     types: {},
     brushed: false,
     mode: "default",
@@ -526,7 +526,7 @@ function flipAxisAndUpdatePCP(dimension) {
   if (flags.shadows) paths(__.data, ctx.shadows);
 }
 
-function rotateLabels() {
+/*function rotateLabels() {
   var delta = d3.event.deltaY;
   delta = delta < 0 ? -5 : delta;
   delta = delta > 0 ? 5 : delta;
@@ -535,7 +535,7 @@ function rotateLabels() {
   pc.svg.selectAll("text.label")
     .attr("transform", "translate(0,-5) rotate(" + __.dimensionTitleRotation + ")");
   d3.event.preventDefault();
-}
+}*/
 
 pc.createAxes = function() {
   if (g) pc.removeAxes();
@@ -564,7 +564,7 @@ pc.createAxes = function() {
         return d in __.dimensionTitles ? __.dimensionTitles[d] : d;  // dimension display names
       })
       .on("dblclick", flipAxisAndUpdatePCP)
-      .on("wheel", rotateLabels);
+      /*.on("wheel", rotateLabels);*/
 
   flags.axes= true;
   return this;
