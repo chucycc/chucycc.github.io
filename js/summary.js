@@ -1,4 +1,5 @@
 // Summary menu and charts
+var HaveCircle = false;
 
 function toggle(target){
   var artz = document.getElementsByClassName('article');
@@ -20,42 +21,75 @@ function toggle(target){
   if (targ.id === "sum6") {
 	update_matrix();
   }
-  if (targ.id === "sum2"){
+
+  if (targ.id === "sum2" && !HaveCircle){
+    HaveCircle = true;
     var g = d3.select("g.pacific");
     var bbox = g.node().getBBox();
     g.append("circle")
       .attr("class", "region-circle")
-      .attr("r", 20)
+      .attr("r", 30)
       .attr("cx", bbox.x + bbox.width/3)
       .attr("cy", bbox.y + bbox.height/2);
+    g.append("text")
+      .attr("x", bbox.x + bbox.width/3)
+      .attr("y", bbox.y + bbox.height/2)
+      .attr("text-anchor", "middle")
+      .attr("class", "region-name")
+      .text("Pacific");
+
     g = d3.select("g.mountain");
     bbox = g.node().getBBox();
     g.append("circle")
       .attr("class", "region-circle")
-      .attr("r", 20)
+      .attr("r", 30)
       .attr("cx", bbox.x + bbox.width/2)
       .attr("cy", bbox.y + bbox.height/2);
+    g.append("text")
+      .attr("x", bbox.x + bbox.width/2)
+      .attr("y", bbox.y + bbox.height/2)
+      .attr("text-anchor", "middle")
+      .attr("class", "region-name")
+      .text("Mountain");
     g = d3.select("g.midwest");
     bbox = g.node().getBBox();
     g.append("circle")
       .attr("class", "region-circle")
-      .attr("r", 20)
+      .attr("r", 30)
       .attr("cx", bbox.x + bbox.width/2)
       .attr("cy", bbox.y + bbox.height/2);
+    g.append("text")
+      .attr("x", bbox.x + bbox.width/2)
+      .attr("y", bbox.y + bbox.height/2)
+      .attr("text-anchor", "middle")
+      .attr("class", "region-name")
+      .text("Midwest");
     g = d3.select("g.south");
     bbox = g.node().getBBox();
     g.append("circle")
       .attr("class", "region-circle")
-      .attr("r", 20)
+      .attr("r", 30)
       .attr("cx", bbox.x + bbox.width/2)
       .attr("cy", bbox.y + bbox.height/2);
+    g.append("text")
+      .attr("x", bbox.x + bbox.width/2)
+      .attr("y", bbox.y + bbox.height/2)
+      .attr("text-anchor", "middle")
+      .attr("class", "region-name")
+      .text("South");
     g = d3.select("g.northeast");
     bbox = g.node().getBBox();
     g.append("circle")
       .attr("class", "region-circle")
-      .attr("r", 20)
+      .attr("r", 30)
       .attr("cx", bbox.x + bbox.width/2)
       .attr("cy", bbox.y + bbox.height/2);
+    g.append("text")
+      .attr("x", bbox.x + bbox.width/2)
+      .attr("y", bbox.y + bbox.height/2)
+      .attr("text-anchor", "middle")
+      .attr("class", "region-name")
+      .text("Northeast");
   }
   return false;
 }
