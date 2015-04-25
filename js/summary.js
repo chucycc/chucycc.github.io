@@ -38,9 +38,17 @@ function update_para() {
   
 // load csv file and create the chart
   d3.csv('paraCo.csv', function(data) {
-  data = data.filter(function(row) {
-    return row['State'] == selectedState;
+  if (selectedState ==='R') { 
+    d3.shuffle(data);
+    data = data.filter(function(row, i) {
+      return i < 100;
     })
+  }
+  else {
+    data = data.filter(function(row) {
+      return row['State'] == selectedState;
+    })
+  }
   parcoords
     .data(data)
     .hideAxis(["name"])
