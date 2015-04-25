@@ -23,6 +23,9 @@
 <link rel="stylesheet" type="text/css" href="css/d3.parcoords.css">
 <script src="js/d3.parcoords.js"></script>
 <script src="js/divgrid.js"></script>
+<!-- for summary charts turn page -->
+<script src="js/flickity.pkgd.js"></script>
+<link rel="stylesheet" href="css/flickity.css">
 <link rel='canonical' href='http://'/>
 <link rel="alternate" type="application/rss+xml" title="New products" href="http://"/>
 <!-- chart test <link rel='ractive' href='TemperatureChart.html'> -->
@@ -115,14 +118,14 @@
     </div>
   </div>
   <div class="logo logo-overlay fade-in"> <a href="index.html"><img src="img/logo.svg" alt="Healt$care"></a></div>
-  <div class="l-content-wrap fade-in"> <div class="scroll-down-div"><a class="svg scroll-down-arrow" style="padding:0px"><svg>
-    <use xlink:href="#icon-scroll-down-arrow"></use>
-    </svg></a></div>
+  <div class="l-content-wrap fade-in">
+    <div class="scroll-down-div"><a class="svg scroll-down-arrow" style="padding:0px"><svg>
+      <use xlink:href="#icon-scroll-down-arrow"></use>
+      </svg></a></div>
     <div class="l-content full-w">
       <div class="row content-module sm-full-w">
         <div class="col-6">
-          <h2>MONEY IMPROVEs<br>
-            HEALTHCARE QUALITY?</h2>
+          <h2>For Policy Makers</h2>
           <p class="page-intro u-justify">Healthcare spending in the US is increasing dramatically as a percentage of our country’s GDP.
             But does the spending improve the healthcare we receive? To explore the answer, we looked at how healthcare spending impacts healthcare quality.</p>
         </div>
@@ -137,7 +140,7 @@
               left: 30px;
               top: 0px;
               border-top: 0.2px solid black;
-              overflow-y: scroll;
+              overflow-y: hidden;
               padding:10px 5px 10px 5px;
               text-align:left;
               background-color:rgba(242,242,242,0.5);
@@ -146,43 +149,41 @@
               -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
               -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
               box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4); ">
-            <h3>which areas are medically under-served?</h3>
-            <p></p>
+            <div class="gallery js-flickity">
+            <div class="gallery-cell">
+              <h3 class="summaryQtitle">which areas<br>are medically<br>under-served?</h3>
               map1<br>
-              <a href="#" onclick="toggle('sum1');">Show me</a><br>
+              <a class="showme" href="#" onclick="toggle('sum1');">Show me</a><br>
               map2<br>
-              <a href="#" onclick="toggle('sum2');">Show me</a><br>
+              <a class="showme" href="#" onclick="toggle('sum2');">Show me</a><br>
+            </div>
+            <div class="gallery-cell">
+              <h3 class="summaryQtitle">Money<br>and<br>Medicare</h3>
               Scatter plot<br>
-              <div style="height:10px;width:30px;background-image:url(css/background.png) repeat-x repeat-y" onClick="smallscroll('text1')"></div>
-              <a href="#" onclick="toggle('sum3');">Show me</a><br>
+              <a class="showme" href="#" onclick="toggle('sum3');">Show me</a><br>
               Parallel Coordinates<br>
-              <a href="#" onclick="toggle('sum4');">Show me</a><br>
+              <a class="showme" href="#" onclick="toggle('sum4');">Show me</a><br>
               Plot Matrix<br>
-              <a href="#" onclick="toggle('sum5');">Show me</a><br>
-              test<br>
-              test<br>
-              <a id="text11"></a>
+              <a class="showme" href="#" onclick="toggle('sum5');">Show me</a><br>
               test<br>
               test<br>
               test<br>
               test<br>
-              test<br>
-              test<br>
-              test<br>
-              test<br>
-              test<br>
-              test<br>
-            </p>
+            </div>
+            </div>
+            
             <!--</li>-->
           <li class="item content-module col-1 slide-in" id="rightFinal" style="transform: translateY(0px)">
             <div class="article" id="sum1" style="display:none;">Chart 1: map and drag bar -- exploring regional hospital density and so</div>
             <div class="article" id="sum2" style="display:none;"><a href="mapByRegion.html">Chart 2: region map -- prediction of medicare effiecency by region<br>
               by state (?)</a></div>
-            <div class="article" id="sum3" style="display:none;"><!--<a href="scatter.html">Chart 3: scatter plot -- hight spending ?= lower effeciency</a>--><div id="scatter"></div></div>
-            <div class="article" id="sum4" style="display:none;"><a href="paraCo.html">Chart 4: parcoords hospital~state~regional income~quality</a>
-				<div style="width:200px; z-index:9">
-                <select id="selectedState" onChange="update_para()">
-                  <option value="R">Random</option>
+            <div class="article" id="sum3" style="display:none;"><a href="scatter.html">Chart 3: scatter plot -- hight spending ?= lower effeciency</a>
+              <div id="scatter"></div>
+            </div>
+            <div class="article" id="sum4" style="display:none;"><!--<a href="paraCo.html">Chart 4: parcoords hospital~state~regional income~quality</a>-->
+              <div class="chartDropmenu">
+                <select id="selectedState">
+                  <option value="R">United States</option>
                   <option value="AL">Alabama</option>
                   <option value="AK">Alaska</option>
                   <option value="AZ">Arizona</option>
@@ -236,10 +237,78 @@
                   <option value="WY">Wyoming</option>
                 </select>
               </div>
+              <div class="chartLegend">
+                <p>Low</p>
+                <div id="legend4" style="height:10px;width:60px;margin-top:7px"></div>
+                <p>High Quality Hospital</p>
+              </div>
               <div id="example" class="parcoords"></div>
               <div id="grid" style="overflow-y: scroll"></div>
             </div>
-            <div class="article" id="sum5" style="display:none;"><a href="plotMatrix.html">Chart 5: plot matrix -- hospital quality measures</a><div id="matrix"></div></div>
+            <div class="article" id="sum5" style="display:none;"><!--<a href="plotMatrix.html">Chart 5: plot matrix -- hospital quality measures</a>-->
+              <div class="chartDropmenu">
+                <select id="selectedState">
+                  <option value="R">United States</option>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="CA">Caoptionfornia</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                  <option value="DC">District Of Columbia</option>
+                  <option value="FL">Florida</option>
+                  <option value="GA">Georgia</option>
+                  <option value="HI">Hawaii</option>
+                  <option value="ID">Idaho</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="IA">Iowa</option>
+                  <option value="KS">Kansas</option>
+                  <option value="KY">Kentucky</option>
+                  <option value="LA">Louisiana</option>
+                  <option value="ME">Maine</option>
+                  <option value="MD">Maryland</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="MI">Michigan</option>
+                  <option value="MN">Minnesota</option>
+                  <option value="MS">Mississippi</option>
+                  <option value="MO">Missouri</option>
+                  <option value="MT">Montana</option>
+                  <option value="NE">Nebraska</option>
+                  <option value="NV">Nevada</option>
+                  <option value="NH">New Hampshire</option>
+                  <option value="NJ">New Jersey</option>
+                  <option value="NM">New Mexico</option>
+                  <option value="NY">New York</option>
+                  <option value="NC">North Carooptionna</option>
+                  <option value="ND">North Dakota</option>
+                  <option value="OH">Ohio</option>
+                  <option value="OK">Oklahoma</option>
+                  <option value="OR">Oregon</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="RI">Rhode Island</option>
+                  <option value="SC">South Carooptionna</option>
+                  <option value="SD">South Dakota</option>
+                  <option value="TN">Tennessee</option>
+                  <option value="TX">Texas</option>
+                  <option value="UT">Utah</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                </select>
+              </div>
+              <div class="chartLegend">
+                <p>Low</p>
+                <div id="legend5" style="height:10px;width:60px;margin-top:7px"></div>
+                <p>High Spending Hospital</p>
+              </div>
+              <div id="matrix"></div>
+            </div>
           </li>
         </ul>
       </div>
@@ -378,9 +447,9 @@
   </div>
   <footer class="l-footer footer fade-in"> <a href="info.html" class="hidden-phone">Data Analysis: What did we do?</a> <a href="http://chucycc.github.io/#" class="back-to-top">Back to top</a> </footer>
 </div>
-<!-- for the scatter plot matrix -->
+<!-- for the scatter plot matrix --> 
 <script>
-var width = 800,
+var width = 600,
     size = 150,
     padding = 19.5;
 
@@ -400,8 +469,10 @@ var yAxis = d3.svg.axis()
     .orient("left")
     .ticks(5);
 
-var matrixColor = d3.scale.category10();
-
+/*var matrixColor = d3.scale.category20c();*/
+var matrixColor = d3.scale.ordinal()
+  .domain(["high", "medium", "low"])
+  .range(["#92D400", "#eaf400" , "#dfe2a5"]);
 
 d3.csv("plotMatrix.csv", function(error, data) {
   var domainByTrait = {},
@@ -453,6 +524,7 @@ d3.csv("plotMatrix.csv", function(error, data) {
 
   // Titles for the diagonal.
   cell.filter(function(d) { return d.i === d.j; }).append("text")
+  	  .attr("class","diagonalLabel")
       .attr("x", padding)
       .attr("y", padding)
       .attr("dy", ".71em")
@@ -519,8 +591,8 @@ d3.csv("plotMatrix.csv", function(error, data) {
   d3.select(self.frameElement).style("height", size * n + padding + 20 + "px");
 });
 
-</script>
-<!-- for the scatter plot -->
+</script> 
+<!-- for the scatter plot --> 
 <script>
 var chart = c3.generate({
 	bindto: '#scatter',
@@ -570,7 +642,7 @@ setTimeout(function () {
         ]
     });
 }, 3000);
-</script>
+</script> 
 <script type="text/javascript">
 /* <![CDATA[ */
 var wc_single_product_params = {"i18n_required_rating_text":"Please select a rating","review_rating_required":"yes"};
@@ -589,7 +661,7 @@ var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","fragmen
 </script> 
 <script type="text/javascript" src="js/cart-fragments.min.js"></script> 
 <script type="text/javascript" src="js/plugins.js"></script> 
-<script type="text/javascript" src="js/site.js"></script>
+<script type="text/javascript" src="js/site.js"></script> 
 <script>
     var _gaq=[['_setAccount','UA-35779223-7'],['_trackPageview']];
     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

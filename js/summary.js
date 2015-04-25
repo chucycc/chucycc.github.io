@@ -27,7 +27,7 @@ function update_para() {
   var selectedState = chosen.value;
   var blue_to_brown = d3.scale.linear()
   .domain([0, 50])
-  .range(["orange", "#92D400"])/*"#92D400"*/
+  .range(["orange","#92D400"])/*"#92D400"*/
   .interpolate(d3.interpolateLab);
 
   var color = function(d) { return blue_to_brown(d['Hospital Performance']); };
@@ -89,7 +89,3 @@ var summary2 = d3.select("div#sum2.article")
 	.attr("class", "state-map");
 
 // Text scroll down
-function smallscroll(target) {
-  $('html,body,div').animate({ scrollTop: $(target+'1').offset().top }, 'slow');
-  return false;
-}

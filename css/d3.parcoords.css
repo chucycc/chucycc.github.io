@@ -32,6 +32,7 @@ body {
 #example {
 	z-index:999;
 	height: 435px;
+	clear:left;
 }
 .parcoords > svg, .parcoords > canvas {
 	line-height: 2.4;

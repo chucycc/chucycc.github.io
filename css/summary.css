@@ -21,6 +21,33 @@
 #leftFinal::-webkit-scrollbar {
 	width: 0 !important;
 }
+
+h3.summaryQtitle {
+	font-size: 20px;
+	 line-height: 16px;
+	 letter-spacing: -1px;
+	 border-bottom: 10px solid #92D400;
+	 overflow: visible;
+	 padding-top: 10px;
+	 margin-top: -8px;
+}
+
+a.showme {
+	font-size:smaller;
+	color:#92D400;
+	font-weight:bolder;
+	letter-spacing:0.1em;
+}
+a.showme:hover{
+	color:grey;
+}
+a.showme:visited {
+	content: "Shown";
+    opacity: 0.8;
+    -webkit-transition: opacity 150ms;
+    transition: opacity 150ms;
+}
+
 #rightFinal {
 	height:650px;
 	width: 73%;
@@ -38,25 +65,57 @@
   stroke-linecap: round;
 }
 
-/*
-div::-webkit-scrollbar{
-	width:0.2px;
-	padding:0px 0px 0px 0px;
-	margin:0px 0px 0px 0px;
+/* summary section scroll down */
+.nextQ {
+	height:10px;
+	width:100%;
+	background-image:url(background.png);
 }
-div::-webkit-scrollbar-track{
-	background-color:white;
-	border: none;
-	-webkit-box-shadow:none;
-}
-div::-webkit-scrollbar-thumb:vertical{
-	width:0.2px;
-	background-color: #000000;
-}*/
 
-/* charts */
-.chart1 {
-	background-color:black;
+
+/* chart legend */
+.chartDropmenu {
+	width:200px;
+	z-index:9;
+	display:block;
+	float:left;
+}
+.chartLegend {
+	display:inline;
+	/*position:absolute;
+	top:0px;
+	right:0px;*/
+	float: right;
+	z-index: 9;
+}
+.chartLegend p {
+	display:inline-block;
+	font-size: 10px;
+	font-weight: lighter;
+	line-height:15px;
+	letter-spacing:0.1em;
+}
+
+#legend4{
+	display:inline-block;
+    background: -webkit-linear-gradient(left, orange, #92D400); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, orange, #92D400); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right,orange, #92D400); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, orange, #92D400); /* Standard syntax (must be last) */
+}
+#legend4 p{
+	color:white;
+}
+
+#legend5{
+	display:inline-block;
+    background: -webkit-linear-gradient(left, #dfe2a5, #eaf400 , #92D400); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #dfe2a5, #eaf400 , #92D400); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right,#dfe2a5, #eaf400 , #92D400); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #dfe2a5, #eaf400 , #92D400); /* Standard syntax (must be last) */
+}
+#legend5 p{
+	color:white;
 }
 
 /* scatter plot matrix */
@@ -90,4 +149,74 @@ circle.hidden {
   fill: #000;
   fill-opacity: .125;
   stroke: #fff;
+}
+
+#matrix text{
+	letter-spacing:0.1em;
+	font-size:8px;
+}
+#matrix .diagonalLabel {
+	font-size:10px;
+}
+
+/* turn page */
+
+.gallery {
+  padding:0px 0px 10px 0px;
+}
+
+.gallery-cell {
+  width: 100%;
+  height: 100%;
+  margin-right: 10px;
+  counter-increment: gallery-cell;
+}
+
+/* cell number */
+.gallery-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(gallery-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
+
+
+/* big buttons, no circle */
+.flickity-prev-next-button {
+  width: 100px;
+  height: 100px;
+  background: transparent;
+}
+/* arrow color */
+.flickity-prev-next-button .arrow {
+  fill: white;
+}
+.flickity-prev-next-button.no-svg {
+  color: white;
+}
+.flickity-prev-next-button:hover {
+  background: transparent;
+}
+/* hide disabled button */
+.flickity-prev-next-button:disabled {
+  display: none;
+}
+
+/* position dots in gallery */
+.flickity-page-dots {
+  bottom: 0px;
+}
+/* white circles */
+.flickity-page-dots .dot {
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  background: transparent;
+  border: 2px solid white;
+}
+/* fill-in selected dot */
+.flickity-page-dots .dot.is-selected {
+  background: white;
 }
