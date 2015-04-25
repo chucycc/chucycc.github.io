@@ -20,6 +20,43 @@ function toggle(target){
   if (targ.id === "sum6") {
 	update_matrix();
   }
+  if (targ.id === "sum2"){
+    var g = d3.select("g.pacific");
+    var bbox = g.node().getBBox();
+    g.append("circle")
+      .attr("class", "region-circle")
+      .attr("r", 20)
+      .attr("cx", bbox.x + bbox.width/3)
+      .attr("cy", bbox.y + bbox.height/2);
+    g = d3.select("g.mountain");
+    bbox = g.node().getBBox();
+    g.append("circle")
+      .attr("class", "region-circle")
+      .attr("r", 20)
+      .attr("cx", bbox.x + bbox.width/2)
+      .attr("cy", bbox.y + bbox.height/2);
+    g = d3.select("g.midwest");
+    bbox = g.node().getBBox();
+    g.append("circle")
+      .attr("class", "region-circle")
+      .attr("r", 20)
+      .attr("cx", bbox.x + bbox.width/2)
+      .attr("cy", bbox.y + bbox.height/2);
+    g = d3.select("g.south");
+    bbox = g.node().getBBox();
+    g.append("circle")
+      .attr("class", "region-circle")
+      .attr("r", 20)
+      .attr("cx", bbox.x + bbox.width/2)
+      .attr("cy", bbox.y + bbox.height/2);
+    g = d3.select("g.northeast");
+    bbox = g.node().getBBox();
+    g.append("circle")
+      .attr("class", "region-circle")
+      .attr("r", 20)
+      .attr("cx", bbox.x + bbox.width/2)
+      .attr("cy", bbox.y + bbox.height/2);
+  }
   return false;
 }
 
