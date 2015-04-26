@@ -3,14 +3,16 @@
 var chart = c3.generate({
 	bindto: '#histo',
 	size: {
-        height: 550,
+        height: 600,
         width: 650
     },
     data: {
+		x: 'Medicare hospital spending per patient',
         columns: [
-            ['low efficiency', 0,0,0,0,0,0,0,0,0,6,16,8,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-			['medium efficiency', 0,0,0,0,0,0,0,0,1,3,294,555,252,95,29,9,6,6,2,0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-			['high efficiency', 0,2,1,9,6,12,40,104,313,578,574,194,63,19,3,6,6,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0]
+			['Medicare hospital spending per patient',10000,11000,12000,13000,14000,15000,16000,17000,18000,19000,20000,21000,22000,23000,24000,25000,26000,27000,28000,29000,30000,31000],
+            ['low efficiency',0,0,1,3,7,11,47,180,266,225,112,36,13,2,8,0,0,0,0,0,0,0],
+			['medium efficiency',1,0,1,1,2,8,24,52,121,84,28,10,1,1,0,1,0,0,0,0,0,0],
+			['high efficiency',1,2,7,7,13,46,131,380,647,448,207,49,15,10,4,3,1,2,1,0,0,2]
         ],
         type: 'bar',
 		colors: {
@@ -22,11 +24,25 @@ var chart = c3.generate({
             ['low efficiency', 'medium efficiency','high efficiency']
         ]
     },
+	axis: {
+		x: {
+			max: 35000,
+			label: {
+       			text: 'Hospital spending / patient ($)',
+    		},
+		},
+		y: {
+			max: 1250,
+			label: {
+       			text: 'Hospital Count',
+    		},
+		}
+	},
     grid: {
 		x: {
-			lines: [{value: 0, text: 'National Average'},
-                {value: 1, text: 'Highest Spending Efficiency 1/3 of hospitals', position: 'start'},
-                {value: 2, text: 'Lowest Spending Efficiency 1/3 of hospitals', position: 'middle'}]
+			lines: [{value: 17988, text: 'Average'},
+                {value: 18347, text: 'Highest 1/3', position: 'middle'},
+                {value: 17088, text: 'Lowest 1/3', position: 'middle'}]
 		}
     }
 });
@@ -44,54 +60,44 @@ var chart = c3.generate({
         width: 650
     },
     data: {
+		url: '/data/c3_test.csv',
+		type: 'scatter',
         xs: {
-            setosa: 'setosa_x',
-            versicolor: 'versicolor_x',
+            highEffoutcome: 'highEffspending',
+            mediumEffoutcome: 'mediumEffspending',
+			lowEffoutcome: 'lowEffspending'
         },
         // iris data from R
-        columns: [
+        /*columns: [
             ["setosa_x", 3.5, 3.0, 3.2, 3.1, 3.6, 3.9, 3.4, 3.4, 2.9, 3.1, 3.7, 3.4, 3.0, 3.0, 4.0, 4.4, 3.9, 3.5, 3.8, 3.8, 3.4, 3.7, 3.6, 3.3, 3.4, 3.0, 3.4, 3.5, 3.4, 3.2, 3.1, 3.4, 4.1, 4.2, 3.1, 3.2, 3.5, 3.6, 3.0, 3.4, 3.5, 2.3, 3.2, 3.5, 3.8, 3.0, 3.8, 3.2, 3.7, 3.3],
             ["versicolor_x", 3.2, 3.2, 3.1, 2.3, 2.8, 2.8, 3.3, 2.4, 2.9, 2.7, 2.0, 3.0, 2.2, 2.9, 2.9, 3.1, 3.0, 2.7, 2.2, 2.5, 3.2, 2.8, 2.5, 2.8, 2.9, 3.0, 2.8, 3.0, 2.9, 2.6, 2.4, 2.4, 2.7, 2.7, 3.0, 3.4, 3.1, 2.3, 3.0, 2.5, 2.6, 3.0, 2.6, 2.3, 2.7, 3.0, 2.9, 2.9, 2.5, 2.8],
             ["setosa", 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
             ["versicolor", 1.4, 1.5, 1.5, 1.3, 1.5, 1.3, 1.6, 1.0, 1.3, 1.4, 1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3, 1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1, 1.0, 1.2, 1.6, 1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2, 1.3, 1.3, 1.1, 1.3],
-        ],
-        type: 'scatter',
+        ],*/
+        
 		colors: {
-            setosa_x: '#ff0000',
-            versicolor_x: '#00ff00',
-            setosa: '#0000ff',
-			versicolor: '#92D400'
+            highEffoutcome: '#ff0000',
+            mediumEffoutcome: '#00ff00',
+            //lowEffoutcome: '#0000ff',
+			lowEffoutcome: '#92D400'
         },
     },
     axis: {
         x: {
-            label: 'Sepal.Width',
+            label: 'Hospital Spending',
             tick: {
                 fit: false
             }
         },
         y: {
-            label: 'Petal.Width'
+            label: 'Medicare Outcome'
         }
     }
 });
 
 setTimeout(function () {
     chart.load({
-        xs: {
-            virginica: 'virginica_x'
-        },
-        columns: [
-            ["virginica_x", 3.3, 2.7, 3.0, 2.9, 3.0, 3.0, 2.5, 2.9, 2.5, 3.6, 3.2, 2.7, 3.0, 2.5, 2.8, 3.2, 3.0, 3.8, 2.6, 2.2, 3.2, 2.8, 2.8, 2.7, 3.3, 3.2, 2.8, 3.0, 2.8, 3.0, 2.8, 3.8, 2.8, 2.8, 2.6, 3.0, 3.4, 3.1, 3.0, 3.1, 3.1, 3.1, 2.7, 3.2, 3.3, 3.0, 2.5, 3.0, 3.4, 3.0],
-            ["virginica", 2.5, 1.9, 2.1, 1.8, 2.2, 2.1, 1.7, 1.8, 1.8, 2.5, 2.0, 1.9, 2.1, 2.0, 2.4, 2.3, 1.8, 2.2, 2.3, 1.5, 2.3, 2.0, 2.0, 1.8, 2.1, 1.8, 1.8, 1.8, 2.1, 1.6, 1.9, 2.0, 2.2, 1.5, 1.4, 2.3, 2.4, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3, 2.5, 2.3, 1.9, 2.0, 2.3, 1.8],
-        ]
+        url: 'scatter.csv'
     });
 }, 1000);
 
-setTimeout(function () {
-    chart.load({
-        columns: [
-            ["virginica", 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
-        ]
-    });
-}, 3000);
