@@ -19,79 +19,146 @@ function toggle(target){
     update_para();
   }
   if (targ.id === "sum6") {
-	update_matrix();
+	 update_matrix();
   }
 
   if (targ.id === "sum2" && !HaveCircle){
+    update_region();
+  }
+  return false;
+}
+
+// Summary layout
+
+var summary1 = d3.select("div#sum1.article")
+  .append("div")
+  .attr("class", "density-map");
+
+var summary2 = d3.select("div#sum2.article")
+  .append("div")
+  .attr("class", "state-map");
+
+function update_region(){
+    var circlecolor = d3.scale.linear()
+      .domain([-1, 1])
+      .range(["orange", "#92D400"]);
+    var data = [-0.20, 0.10, 0.35, -0.11, 0.57];
+    var circlescale = d3.scale.linear()
+                      .domain(data)
+                      .range([10, 30]);
     HaveCircle = true;
     var g = d3.select("g.pacific");
     var bbox = g.node().getBBox();
     g.append("circle")
       .attr("class", "region-circle")
-      .attr("r", 30)
+      .attr("r", circlescale(Math.abs(data[0])))
       .attr("cx", bbox.x + bbox.width/3)
-      .attr("cy", bbox.y + bbox.height/2);
+      .attr("cy", bbox.y + bbox.height/2)
+      .style("fill",function(d) { return circlecolor(data[0]); });
     g.append("text")
       .attr("x", bbox.x + bbox.width/3)
-      .attr("y", bbox.y + bbox.height/2)
+      .attr("y", bbox.y + bbox.height/2-10)
       .attr("text-anchor", "middle")
       .attr("class", "region-name")
       .text("Pacific");
+    g.append("text")
+      .attr("x", bbox.x + bbox.width/3)
+      .attr("y", bbox.y + bbox.height/2+10)
+      .attr("text-anchor", "middle")
+      .attr("class", "region-percent")
+      .text(dstring(data[0]));
 
     g = d3.select("g.mountain");
     bbox = g.node().getBBox();
     g.append("circle")
       .attr("class", "region-circle")
-      .attr("r", 30)
+      .attr("r", circlescale(Math.abs(data[1])))
       .attr("cx", bbox.x + bbox.width/2)
-      .attr("cy", bbox.y + bbox.height/2);
+      .attr("cy", bbox.y + bbox.height/2)
+      .style("fill",function(d) { return circlecolor(data[1]); });
     g.append("text")
       .attr("x", bbox.x + bbox.width/2)
-      .attr("y", bbox.y + bbox.height/2)
+      .attr("y", bbox.y + bbox.height/2-10)
       .attr("text-anchor", "middle")
       .attr("class", "region-name")
       .text("Mountain");
+    g.append("text")
+      .attr("x", bbox.x + bbox.width/2)
+      .attr("y", bbox.y + bbox.height/2+10)
+      .attr("text-anchor", "middle")
+      .attr("class", "region-percent")
+      .text(dstring(data[1]));
+
     g = d3.select("g.midwest");
     bbox = g.node().getBBox();
     g.append("circle")
       .attr("class", "region-circle")
-      .attr("r", 30)
+      .attr("r", circlescale(Math.abs(data[2])))
       .attr("cx", bbox.x + bbox.width/2)
-      .attr("cy", bbox.y + bbox.height/2);
+      .attr("cy", bbox.y + bbox.height/2)
+      .style("fill",function(d) { return circlecolor(data[2]); });
     g.append("text")
       .attr("x", bbox.x + bbox.width/2)
-      .attr("y", bbox.y + bbox.height/2)
+      .attr("y", bbox.y + bbox.height/2-10)
       .attr("text-anchor", "middle")
       .attr("class", "region-name")
       .text("Midwest");
+    g.append("text")
+      .attr("x", bbox.x + bbox.width/2)
+      .attr("y", bbox.y + bbox.height/2+10)
+      .attr("text-anchor", "middle")
+      .attr("class", "region-percent")
+      .text(dstring(data[2]));
+
     g = d3.select("g.south");
     bbox = g.node().getBBox();
     g.append("circle")
       .attr("class", "region-circle")
-      .attr("r", 30)
+      .attr("r", circlescale(Math.abs(data[3])))
       .attr("cx", bbox.x + bbox.width/2)
-      .attr("cy", bbox.y + bbox.height/2);
+      .attr("cy", bbox.y + bbox.height/2)
+      .style("fill",function(d) { return circlecolor(data[3]); });
     g.append("text")
       .attr("x", bbox.x + bbox.width/2)
-      .attr("y", bbox.y + bbox.height/2)
+      .attr("y", bbox.y + bbox.height/2-10)
       .attr("text-anchor", "middle")
       .attr("class", "region-name")
       .text("South");
+    g.append("text")
+      .attr("x", bbox.x + bbox.width/2)
+      .attr("y", bbox.y + bbox.height/2+10)
+      .attr("text-anchor", "middle")
+      .attr("class", "region-percent")
+      .text(dstring(data[3]));
+
     g = d3.select("g.northeast");
     bbox = g.node().getBBox();
     g.append("circle")
       .attr("class", "region-circle")
-      .attr("r", 30)
+      .attr("r", circlescale(Math.abs(data[4])))
       .attr("cx", bbox.x + bbox.width/2)
-      .attr("cy", bbox.y + bbox.height/2);
+      .attr("cy", bbox.y + bbox.height/2)
+      .style("fill",function(d) { return circlecolor(data[4]); });
     g.append("text")
       .attr("x", bbox.x + bbox.width/2)
-      .attr("y", bbox.y + bbox.height/2)
+      .attr("y", bbox.y + bbox.height/2-10)
       .attr("text-anchor", "middle")
       .attr("class", "region-name")
       .text("Northeast");
+    g.append("text")
+      .attr("x", bbox.x + bbox.width/2)
+      .attr("y", bbox.y + bbox.height/2+10)
+      .attr("text-anchor", "middle")
+      .attr("class", "region-percent")
+      .text(dstring(data[4]));
+
+}
+
+function dstring(d){
+  if (d > 0) {
+    return "+" + Math.round(+d*100) + "%";
   }
-  return false;
+  return Math.round(+d*100) + "%";
 }
 
 function update_para() {
@@ -155,17 +222,6 @@ function update_para() {
     });
     });
 }
-
-// Summary layout
-
-var summary1 = d3.select("div#sum1.article")
-  .append("div")
-  .attr("class", "density-map");
-
-var summary2 = d3.select("div#sum2.article")
-	.append("div")
-	.attr("class", "state-map");
-
 
 // Scatter Plot Matrix
 
