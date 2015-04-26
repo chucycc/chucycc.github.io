@@ -150,29 +150,37 @@
               -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
               box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4); ">
             <div class="gallery js-flickity">
-            <div class="gallery-cell">
-              <h3 class="summaryQtitle">which areas<br>are medically<br>under-served?</h3>
-              map1<br>
-              <a class="showme" href="#" onclick="toggle('sum1');">Show me</a><br>
-              map2<br>
-              <a class="showme" href="#" onclick="toggle('sum2');">Show me</a><br>
-            </div>
-            <div class="gallery-cell">
-              <h3 class="summaryQtitle">Money<br>and<br>Medicare</h3>
-              Scatter plot<br>
-              <a class="showme" href="#" onclick="toggle('sum3');">Show me</a><br>
-              Parallel Coordinates<br>
-              <a class="showme" href="#" onclick="toggle('sum4');">Show me</a><br>
-              Histogram<br>
-              <a class="showme" href="#" onclick="toggle('sum5');">Show me</a><br>
-              Plot Matrix<br>
-              <a class="showme" href="#" onclick="toggle('sum6');">Show me</a><br>
-              test<br>
-              test<br>
-              test<br>
-              test<br>
-            </div>
-            </div>
+              <div class="gallery-cell">
+                <h3>which areas<br>
+                  are medically<br>
+                  under-served?</h3>
+                <p>The distribution of hospitals, the amounts of money the hospitals spent in the patients, the quality of Medicare all vary wildly across regions in the United States.</p>
+                <p>We call attention to regions with limited access to hospitals, especially high-quality hospitals.</p>
+                <a class="showme" href="#" onclick="toggle('sum1');">Show me</a><br>
+              </div>
+              <div class="gallery-cell">
+                <h3>Which hospitals need efficiency intervention?</h3>
+                <p>Based on the moneitary input and the medicare quality output data, we present a predictive model to inform policy makers and investors the likely quality output of a new hospital.</p>
+                <a class="showme" href="#" onclick="toggle('sum2');">Show me</a><br>
+              </div>
+              <div class="gallery-cell">
+              <h3>Money input<br>and<br>Spending efficiency</h3>
+                
+                <p>It's noteworthy that higher medicare spending per claim might be related to less efficiency of the spending.</p>
+                <a class="showme" href="#" onclick="toggle('sum5');">Show me</a><br>
+                <p>Medicare quality is a multi-dimensional measure. Interestingly, higher medicare spending has positive correlation with certain quality measures but not others.</p>
+                <a class="showme" href="#" onclick="toggle('sum6');">Show me</a><br>
+              
+              </div>
+              <div class="gallery-cell">
+                <h3>Money input<br>and<br>Medicare outcome</h3>
+                <p>Correlation between spending and outcome, colored by efficiency categories.</p>
+                <a class="showme" href="#" onclick="toggle('sum3');">Show me</a><br>
+                <p>A more detailed description of US hospital status quo is avaiable. We encourage users to furthur explore the condition of their concerned states and regions.</p>
+                <a class="showme" href="#" onclick="toggle('sum4');">Show me</a><br>
+                
+              </div>
+              </div>
             
             <!--</li>-->
           <li class="item content-module col-1 slide-in" id="rightFinal" style="transform: translateY(0px)">
@@ -247,7 +255,9 @@
               <div id="example" class="parcoords"></div>
               <div id="grid" style="overflow-y: scroll"></div>
             </div>
-            <div class="article" id="sum5" style="display:none;">Chart 5 intro: histogram -- hospital spending frequency<div id="histo"></div></div>
+            <div class="article" id="sum5" style="display:none;">Chart 5 intro: histogram -- hospital spending frequency
+              <div id="histo"></div>
+            </div>
             <div class="article" id="sum6" style="display:none;"><!--<a href="plotMatrix.html">Chart 5: plot matrix -- hospital quality measures</a>-->
               <div class="chartDropmenu">
                 <select id="selectedState" onChange="update_matrix(this)">

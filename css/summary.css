@@ -22,7 +22,7 @@
 	width: 0 !important;
 }
 
-h3.summaryQtitle {
+.gallery-cell h3{
 	font-size: 20px;
 	 line-height: 16px;
 	 letter-spacing: -1px;
@@ -30,6 +30,18 @@ h3.summaryQtitle {
 	 overflow: visible;
 	 padding-top: 10px;
 	 margin-top: -8px;
+	 margin-bottom: 20px;
+}
+
+.gallery-cell p{
+	text-transform:none;
+	font-size:12px;
+	font-weight: light;
+	font-family:Cambria;
+	line-height: 14px;
+	letter-spacing: 0.1em;
+	margin-top:14px;
+
 }
 
 a.showme {
