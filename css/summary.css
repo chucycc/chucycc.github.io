@@ -65,6 +65,14 @@ a.showme:visited {
   stroke-linecap: round;
 }
 
+.region-map:hover{
+	fill:#92D400;
+}
+
+.region-circle {
+	fill:#eaf400;
+}
+
 /* summary section scroll down */
 .nextQ {
 	height:10px;
