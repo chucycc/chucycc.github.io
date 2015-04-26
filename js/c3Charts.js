@@ -8,31 +8,32 @@ var chart = c3.generate({
     },
     data: {
         columns: [
-            ['low', -30, 200, 200, 400, -150, 250],
-            ['medium', 130, 100, -100, 200, -150, 50],
-            ['high', -230, 200, 200, -300, 250, 250]
+            ['low quality', 0,0,0,0,0,0,0,0,0,6,16,8,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+			['medium quality', 0,0,0,0,0,0,0,0,1,3,294,555,252,95,29,9,6,6,2,0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+			['high quality', 0,2,1,9,6,12,40,104,313,578,574,194,63,19,3,6,6,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0]
         ],
         type: 'bar',
 		colors: {
-            low: 'orange',
-            medium: '#00ff00',
-			high: '#92D400'
+            'low quality': '#f5a900',
+            'medium quality': '#c9bc00',
+			'high quality': '#92D400'
         },
         groups: [
-            ['data1', 'data2','data3']
+            ['low quality', 'medium quality','high quality']
         ]
     },
     grid: {
-        y: {
-            lines: [{value:0}]
-        }
+		x: {
+			lines: [{value: 0, text: 'National Average'},
+                {value: 1, text: 'Highest Spending 1/3 of hospitals', position: 'start'},
+                {value: 2, text: 'Lowest Spending 1/3 of hospitals', position: 'middle'}]
+		}
     }
 });
 
 setTimeout(function () {
-    chart.groups([['data1', 'data2', 'data3']])
-}, 1000);
-
+    chart.groups([['low quality', 'medium quality','high quality']])
+}, 100);
 
 <!-- for the scatter plot --> 
 
