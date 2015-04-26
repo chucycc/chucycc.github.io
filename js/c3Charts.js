@@ -8,31 +8,31 @@ var chart = c3.generate({
     },
     data: {
         columns: [
-            ['low quality', 0,0,0,0,0,0,0,0,0,6,16,8,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-			['medium quality', 0,0,0,0,0,0,0,0,1,3,294,555,252,95,29,9,6,6,2,0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-			['high quality', 0,2,1,9,6,12,40,104,313,578,574,194,63,19,3,6,6,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0]
+            ['low efficiency', 0,0,0,0,0,0,0,0,0,6,16,8,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+			['medium efficiency', 0,0,0,0,0,0,0,0,1,3,294,555,252,95,29,9,6,6,2,0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+			['high efficiency', 0,2,1,9,6,12,40,104,313,578,574,194,63,19,3,6,6,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0]
         ],
         type: 'bar',
 		colors: {
-            'low quality': '#f5a900',
-            'medium quality': '#c9bc00',
-			'high quality': '#92D400'
+            'low efficiency': '#f5a900',
+            'medium efficiency': '#c9bc00',
+			'high efficiency': '#92D400'
         },
         groups: [
-            ['low quality', 'medium quality','high quality']
+            ['low efficiency', 'medium efficiency','high efficiency']
         ]
     },
     grid: {
 		x: {
 			lines: [{value: 0, text: 'National Average'},
-                {value: 1, text: 'Highest Spending 1/3 of hospitals', position: 'start'},
-                {value: 2, text: 'Lowest Spending 1/3 of hospitals', position: 'middle'}]
+                {value: 1, text: 'Highest Spending Efficiency 1/3 of hospitals', position: 'start'},
+                {value: 2, text: 'Lowest Spending Efficiency 1/3 of hospitals', position: 'middle'}]
 		}
     }
 });
 
 setTimeout(function () {
-    chart.groups([['low quality', 'medium quality','high quality']])
+    chart.groups([['low efficiency', 'medium efficiency','high efficiency']])
 }, 100);
 
 <!-- for the scatter plot --> 
