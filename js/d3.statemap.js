@@ -73,5 +73,31 @@ function regionmap(error, us, sc){
     .on('mouseover', tip.show)
     .on('mouseout', tip.hide);
   });
+
+  var r = 10;
+  function movecircle(d) {
+    d3.select(this)
+      .attr("cx", Math.max(10+r, Math.min(300-r, d3.event.x)));
+  }
+
+  var dragbar = d3.behavior.drag()
+    .on("drag", movecircle);
+
+  var line = dmap_svg.append("line")
+    .attr("x1", 10)
+    .attr("y1", 30)
+    .attr("x2", 300)
+    .attr("y2", 30)
+    .attr('stroke', "#ddd")
+    .attr('stroke-width', "3px");;
+
+  var circle = dmap_svg.append("circle")
+    .attr("id", "handle")
+    .attr("cx", 30)
+    .attr("cy", 30)
+    .attr("r", r)
+    .attr("fill", "#92D400")
+    .call(dragbar);
+
 }
 
