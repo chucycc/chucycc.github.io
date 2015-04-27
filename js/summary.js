@@ -42,10 +42,10 @@ function update_region(){
     var circlecolor = d3.scale.linear()
       .domain([-1, 1])
       .range(["orange", "green"]);
-    var data = [-0.20, 0.10, 0.35, -0.11, 0.57];
+    var data = [-0.62, 0.67, -0.06, 0.28, -0.27];
     var circlescale = d3.scale.linear()
                       .domain(data)
-                      .range([10, 30]);
+                      .range([10, 40]);
     HaveCircle = true;
     var g = d3.select("g.pacific");
     var bbox = g.node().getBBox();
