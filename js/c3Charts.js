@@ -60,12 +60,12 @@ var chart = c3.generate({
         width: 650
     },
     data: {
-		url: '/data/c3_test.csv',
+		url: 'scatter.csv',
 		type: 'scatter',
         xs: {
-            highEffoutcome: 'highEffspending',
-            mediumEffoutcome: 'mediumEffspending',
-			lowEffoutcome: 'lowEffspending'
+            high_Efficiency_Hospitals: 'highEffspending',
+            medium_Efficiency_Hospitals: 'mediumEffspending',
+			low_Efficiency_Hospitals: 'lowEffspending'
         },
         // iris data from R
         /*columns: [
@@ -76,10 +76,9 @@ var chart = c3.generate({
         ],*/
         
 		colors: {
-            highEffoutcome: '#ff0000',
-            mediumEffoutcome: '#00ff00',
-            //lowEffoutcome: '#0000ff',
-			lowEffoutcome: '#92D400'
+            'high_Efficiency_Hospitals': '#f5a900',
+            'medium_Efficiency_Hospitals': '#c9bc00',
+			'low_Efficiency_Hospitals': '#92D400'
         },
     },
     axis: {
