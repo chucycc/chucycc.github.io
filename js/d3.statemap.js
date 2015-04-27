@@ -1,5 +1,5 @@
 var statemap_width = 600,
-    statemap_height = 400;
+    statemap_height = 500;
 
 
 var state_svg = d3.select("div.state-map")
@@ -31,6 +31,23 @@ state_svg.call(tip);
     .defer(d3.csv, "Statecoefficients.csv")
     .await(regionmap);
 
+var x = d3.scale.linear()
+    .domain([1, 400])
+    .range([1, 200]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .tickValues([1, 100, 200, 300, 400])
+    .orient("bottom");
+
+var bar_value = d3.scale.linear()
+      .domain([360, 560])
+      .rangeRound([1, 400]);
+
+var statecolor = d3.scale.linear()
+    .domain([-1, 1])
+    .range(["yellow", "green"]);
+
 function regionmap(error, us, sc){
   csv = sc;
     var region = [null, 3, 0, null, 1, 3, 0, null, 1, 4, 4, 4, 3, 3,
@@ -45,11 +62,13 @@ function regionmap(error, us, sc){
     return d.id > 0 && d.id < 57;
   });
   us.sort(function(a, b){return a.id-b.id});
+
   dmap_g.selectAll("path")
     .data(us)
     .enter().append("path")
     .attr("d", state_path)
-    .attr("class", "region-map");
+    .attr("class", "region-map")
+    .attr("id", function(d){ return "state"+d.id;});
 
   us.forEach(function(d, i){
     d["oid"] = i;
@@ -75,29 +94,60 @@ function regionmap(error, us, sc){
   });
 
   var r = 10;
-  function movecircle(d) {
-    d3.select(this)
-      .attr("cx", Math.max(10+r, Math.min(300-r, d3.event.x)));
-  }
-
+  var sc2 = sc.slice();
+  sc2.sort(function(a, b){return a.hospital_number-b.hospital_number});
   var dragbar = d3.behavior.drag()
     .on("drag", movecircle);
 
-  var line = dmap_svg.append("line")
-    .attr("x1", 10)
-    .attr("y1", 30)
-    .attr("x2", 300)
-    .attr("y2", 30)
-    .attr('stroke', "#ddd")
-    .attr('stroke-width', "3px");;
+  dmap_svg.append("g")
+    .attr("class", "x-axis")
+    .attr("transform", "translate(" + statemap_width*0.6 + "," + statemap_height*0.9 + ")")
+    .call(xAxis)
+    .append("text")
+    .attr("class", "caption")
+    .attr("y", -15)
+    .text("Number of hospital");;
 
   var circle = dmap_svg.append("circle")
     .attr("id", "handle")
-    .attr("cx", 30)
-    .attr("cy", 30)
+    .attr("cx", statemap_width*0.6)
+    .attr("cy", statemap_height*0.9)
     .attr("r", r)
     .attr("fill", "#92D400")
     .call(dragbar);
 
+    dmap_svg.append("rect")
+    .attr("fill", "#000")
+    .attr("width", 10)
+    .attr("height", 10)
+    .attr("x", 455)
+    .attr("y", 30)
+    dmap_svg.append("text")
+    .attr("x", 475)
+    .attr("y", 40)
+    .text("Missing value");
+
+  function movecircle(d) {
+    var x = Math.max(statemap_width*0.6, Math.min(statemap_width*0.6+200, d3.event.x));
+    d3.select(this)
+      .attr("cx", x);
+    var value = bar_value(x);
+    sc2.forEach(function(d){
+      if (d.hospital_number <= value) {
+        d3.select("#state" + d.id)
+          .attr("fill", function(){
+            if (d.coefficient === '-') return "#000";
+            return statecolor(d.coefficient);
+          })
+          .attr("class", "region-map-selected");
+      }
+      else {
+        d3.select("#state" + d.id)
+          .attr("class", "region-map");
+      }
+    });
+
+  }
 }
+
 
