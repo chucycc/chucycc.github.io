@@ -82,7 +82,8 @@ a.showme:visited {
 }
 
 .region-circle {
-	fill:#eaf400;
+	pointer-events: none;
+	fill-opacity:0.5;
 }
 
 .region-percent {
@@ -274,4 +275,8 @@ circle.hidden {
   margin: -1px 0 0 0;
   top: 100%;
   left: 0;
+}
+
+.tooltip-text {
+	color: #92D400;
 }

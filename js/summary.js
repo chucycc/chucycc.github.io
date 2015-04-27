@@ -41,7 +41,7 @@ var summary2 = d3.select("div#sum2.article")
 function update_region(){
     var circlecolor = d3.scale.linear()
       .domain([-1, 1])
-      .range(["orange", "#92D400"]);
+      .range(["orange", "green"]);
     var data = [-0.20, 0.10, 0.35, -0.11, 0.57];
     var circlescale = d3.scale.linear()
                       .domain(data)
@@ -158,6 +158,7 @@ function dstring(d){
   if (d > 0) {
     return "+" + Math.round(+d*100) + "%";
   }
+  else if (d === "-") return "missing value";
   return Math.round(+d*100) + "%";
 }
 
