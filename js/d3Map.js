@@ -73,17 +73,19 @@
     queue()
     .defer(d3.json, "zip.json")
     .defer(d3.csv, "data.csv")
+    .defer(d3.csv, "markhs.csv")
     .await(ready);
 
 
-function ready(error, us, hs) {
-    var zoom = d3.behavior.zoom()
+function ready(error, us, hs, ms) {
+
+  var zoom = d3.behavior.zoom()
       .x(X)
       .y(Y)
       .scaleExtent([1, 25])
       .on("zoom", zoomed);
 
-    var zip = topojson.feature(us, us.objects.tl_2014_us_zcta510);
+  var zip = topojson.feature(us, us.objects.tl_2014_us_zcta510);
 
 	var obj_names = Object.keys(hs[0]).slice(7,17);
 	hs.forEach(function(row) {
@@ -126,6 +128,34 @@ function ready(error, us, hs) {
       .on('mouseover', mouseoverHS)
       .on('mouseout', mouseoutHS)
       .on('click', clicked);
+/*
+    var mark = g.selectAll(".mark")
+      .data(ms)
+      .enter().append("image")
+      .attr("class", "mark")
+      .attr("width", 32)
+      .attr("height", 32)
+      .attr("xlink:href",'map-marker.png')
+      .attr("transform", transform);
+*/
+    var mark2 = g.selectAll(".mark")
+      .data(ms)
+      .enter().append("circle")
+      .attr("class", "mkhs")
+      .attr("r", 30)
+      .attr("transform", transform);
+    var text1 = g.selectAll(".marktext1")
+      .data(ms)
+      .enter().append("text")
+      .attr("class", "marktext1")
+      .attr("transform", transform2)
+      .text(function(d){return d.text1;});
+    var text2 = g.selectAll(".marktext2")
+      .data(ms)
+      .enter().append("text")
+      .attr("class", "marktext2")
+      .attr("transform", transform3)
+      .text(function(d){return d.text2;});
 
     svg.append("text")
     .attr("x", width * 0.75)
@@ -137,10 +167,13 @@ function ready(error, us, hs) {
     .call(zoom.event);
 
     function zoomed() {
-	statebound.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+	  statebound.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
   	landbound.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
   	zipregion.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-  	circle.attr("transform", transform);
+  	mark2.attr("transform", transform);
+    circle.attr("transform", transform);
+    text1.attr("transform", transform2);
+    text2.attr("transform", transform3)
   	if (d3.event.scale > 5) {
   		circle.attr("r", 3.6);
   	}
@@ -148,9 +181,15 @@ function ready(error, us, hs) {
   		circle.attr("r", 1.8);
   	};
 	}
-  	function transform(d) {
+  function transform(d) {
   	  return "translate(" + X(projection([d.lng, d.lat])[0]) + "," + Y(projection([d.lng, d.lat])[1]) + ")";
 	}
+  function transform2(d) {
+      return "translate(" + (X(projection([d.lng, d.lat])[0])+50) + "," + (Y(projection([d.lng, d.lat])[1])-30) + ")";
+  }
+  function transform3(d) {
+      return "translate(" + (X(projection([d.lng, d.lat])[0])+50) + "," + (Y(projection([d.lng, d.lat])[1])-10) + ")";
+  }
 };
 
 

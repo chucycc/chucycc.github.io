@@ -315,3 +315,15 @@ circle.hidden {
   stroke-width: 3px;
   shape-rendering: crispEdges;
 }
+
+.missing-lengend {
+	fill:#fff;
+	stroke:#000;
+	stroke-width: 1px;
+	stroke-linecap: square;
+	stroke-linejoin: miter;
+}
+
+.marktext1 {
+	font-size: 20px;
+}

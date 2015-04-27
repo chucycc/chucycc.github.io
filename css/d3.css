@@ -34,6 +34,13 @@
 	stroke: #505050;
 	stroke-width: 0.1px;
 }
+
+.mkhs {
+	fill:none;
+	stroke: #003333;
+	stroke-width: 3px;
+	stroke-dasharray:0.9;
+}
 .zip {
 	fill: white;
 	transition: fill 0.5s ease;

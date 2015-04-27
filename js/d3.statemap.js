@@ -106,7 +106,7 @@ function regionmap(error, us, sc){
     .append("text")
     .attr("class", "caption")
     .attr("y", -15)
-    .text("Number of hospital");;
+    .text("Number of hospital");
 
   var circle = dmap_svg.append("circle")
     .attr("id", "handle")
@@ -117,14 +117,14 @@ function regionmap(error, us, sc){
     .call(dragbar);
 
     dmap_svg.append("rect")
-    .attr("fill", "#000")
+    .attr("class", "missing-lengend")
     .attr("width", 10)
     .attr("height", 10)
     .attr("x", 455)
-    .attr("y", 30)
+    .attr("y", 75)
     dmap_svg.append("text")
     .attr("x", 475)
-    .attr("y", 40)
+    .attr("y", 85)
     .text("Missing value");
 
   function movecircle(d) {
@@ -136,7 +136,7 @@ function regionmap(error, us, sc){
       if (d.hospital_number <= value) {
         d3.select("#state" + d.id)
           .attr("fill", function(){
-            if (d.coefficient === '-') return "#000";
+            if (d.coefficient === '-') return "#FFF";
             return statecolor(d.coefficient);
           })
           .attr("class", "region-map-selected");
