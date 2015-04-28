@@ -43,7 +43,12 @@
 }
 
 .marktext1 {
-	font-size: 20px;
+	font-size: 15px;
+	text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+}
+.marktext2 {
+	font-size: 15px;
+	text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
 }
 
 .zip {

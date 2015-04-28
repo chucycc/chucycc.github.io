@@ -186,10 +186,10 @@ function ready(error, us, hs, ms) {
   	  return "translate(" + X(projection([d.lng, d.lat])[0]) + "," + Y(projection([d.lng, d.lat])[1]) + ")";
 	}
   function transform2(d) {
-      return "translate(" + (X(projection([d.lng, d.lat])[0])+50) + "," + (Y(projection([d.lng, d.lat])[1])-30) + ")";
+      return "translate(" + (X(projection([d.lng, d.lat])[0])-70) + "," + (Y(projection([d.lng, d.lat])[1])-60) + ")";
   }
   function transform3(d) {
-      return "translate(" + (X(projection([d.lng, d.lat])[0])+50) + "," + (Y(projection([d.lng, d.lat])[1])-10) + ")";
+      return "translate(" + (X(projection([d.lng, d.lat])[0])-70) + "," + (Y(projection([d.lng, d.lat])[1])-40) + ")";
   }
 };
 
