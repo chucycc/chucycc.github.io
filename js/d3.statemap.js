@@ -23,7 +23,7 @@ var dmap_g = dmap_svg.append("g");
 
 var csv;
 var tip = d3.tip().attr('class', 'd3-tip').html(function(d) {
-      return "<span class=\"tooltip-text\"><strong>State: </strong></span>" + csv[d.oid].State + "<br><span class=\"tooltip-text\"><strong>Coefficient: </strong></span>" + dstring(csv[d.oid].coefficient);
+      return "<span class=\"tooltip-text\"><strong>State: </strong></span>" + csv[d.oid].State + "<br><span class=\"tooltip-text\"><strong>Coefficient: </strong></span>" + parseFloat(csv[d.oid].coefficient).toFixed(2);
     });
 state_svg.call(tip);
     queue()
