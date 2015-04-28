@@ -157,6 +157,24 @@ function ready(error, us, hs, ms) {
       .attr("class", "marktext2")
       .attr("transform", transform3)
       .text(function(d){return d.text2;});
+    var text3 = g.selectAll(".marktext3")
+      .data(ms)
+      .enter().append("text")
+      .attr("class", "marktext3")
+      .attr("transform", transform4)
+      .text(function(d){return d.text3;});
+    var text4 = g.selectAll(".marktext4")
+      .data(ms)
+      .enter().append("text")
+      .attr("class", "marktext4")
+      .attr("transform", transform5)
+      .text(function(d){return d.text4;});
+    var text5 = g.selectAll(".marktext5")
+      .data(ms)
+      .enter().append("text")
+      .attr("class", "marktext5")
+      .attr("transform", transform6)
+      .text(function(d){return d.text5;});
 
     svg.append("text")
     .attr("x", width * 0.75)
@@ -174,7 +192,10 @@ function ready(error, us, hs, ms) {
   	mark2.attr("transform", transform);
     circle.attr("transform", transform);
     text1.attr("transform", transform2);
-    text2.attr("transform", transform3)
+    text2.attr("transform", transform3);
+    text3.attr("transform", transform4);
+    text4.attr("transform", transform5);
+    text5.attr("transform", transform6);
   	if (d3.event.scale > 5) {
   		circle.attr("r", 3.6);
   	}
@@ -190,6 +211,15 @@ function ready(error, us, hs, ms) {
   }
   function transform3(d) {
       return "translate(" + (X(projection([d.lng, d.lat])[0])-70) + "," + (Y(projection([d.lng, d.lat])[1])-40) + ")";
+  }
+  function transform4(d) {
+      return "translate(" + (X(projection([d.lng, d.lat])[0])-70) + "," + (Y(projection([d.lng, d.lat])[1])+40) + ")";
+  }
+  function transform5(d) {
+      return "translate(" + (X(projection([d.lng, d.lat])[0])-70) + "," + (Y(projection([d.lng, d.lat])[1])+50) + ")";
+  }
+  function transform6(d) {
+      return "translate(" + (X(projection([d.lng, d.lat])[0])-70) + "," + (Y(projection([d.lng, d.lat])[1])+60) + ")";
   }
 };
 

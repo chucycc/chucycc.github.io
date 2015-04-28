@@ -51,6 +51,10 @@
 	text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
 }
 
+.marktext3, .marktext4, .marktext5 {
+
+}
+
 .zip {
 	fill: white;
 	transition: fill 0.5s ease;
