@@ -52,7 +52,7 @@
 }
 
 .marktext3, .marktext4, .marktext5 {
-
+	text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
 }
 
 .zip {
