@@ -138,6 +138,7 @@ function ready(error, us, hs, ms) {
       .attr("xlink:href",'map-marker.png')
       .attr("transform", transform);
 */
+    var cc = ["high spending, low quality"];
     var mark2 = g.selectAll(".mark")
       .data(ms)
       .enter().append("circle")
