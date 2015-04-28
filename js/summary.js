@@ -57,17 +57,18 @@ function update_region(){
       .style("fill",function(d) { return circlecolor(data[0]); });
     g.append("text")
       .attr("x", bbox.x + bbox.width/3)
-      .attr("y", bbox.y + bbox.height/2-10)
+      .attr("y", bbox.y + bbox.height/2)
       .attr("text-anchor", "middle")
       .attr("class", "region-name")
       .text("Pacific");
+/*
     g.append("text")
       .attr("x", bbox.x + bbox.width/3)
       .attr("y", bbox.y + bbox.height/2+10)
       .attr("text-anchor", "middle")
       .attr("class", "region-percent")
       .text(dstring(data[0]));
-
+*/
     g = d3.select("g.mountain");
     bbox = g.node().getBBox();
     g.append("circle")
@@ -78,17 +79,18 @@ function update_region(){
       .style("fill",function(d) { return circlecolor(data[1]); });
     g.append("text")
       .attr("x", bbox.x + bbox.width/2)
-      .attr("y", bbox.y + bbox.height/2-10)
+      .attr("y", bbox.y + bbox.height/2)
       .attr("text-anchor", "middle")
       .attr("class", "region-name")
       .text("Mountain");
+/*
     g.append("text")
       .attr("x", bbox.x + bbox.width/2)
       .attr("y", bbox.y + bbox.height/2+10)
       .attr("text-anchor", "middle")
       .attr("class", "region-percent")
       .text(dstring(data[1]));
-
+*/
     g = d3.select("g.midwest");
     bbox = g.node().getBBox();
     g.append("circle")
@@ -99,17 +101,18 @@ function update_region(){
       .style("fill",function(d) { return circlecolor(data[2]); });
     g.append("text")
       .attr("x", bbox.x + bbox.width/2)
-      .attr("y", bbox.y + bbox.height/2-10)
+      .attr("y", bbox.y + bbox.height/2)
       .attr("text-anchor", "middle")
       .attr("class", "region-name")
       .text("Midwest");
+/*
     g.append("text")
       .attr("x", bbox.x + bbox.width/2)
       .attr("y", bbox.y + bbox.height/2+10)
       .attr("text-anchor", "middle")
       .attr("class", "region-percent")
       .text(dstring(data[2]));
-
+*/
     g = d3.select("g.south");
     bbox = g.node().getBBox();
     g.append("circle")
@@ -120,17 +123,18 @@ function update_region(){
       .style("fill",function(d) { return circlecolor(data[3]); });
     g.append("text")
       .attr("x", bbox.x + bbox.width/2)
-      .attr("y", bbox.y + bbox.height/2-10)
+      .attr("y", bbox.y + bbox.height/2)
       .attr("text-anchor", "middle")
       .attr("class", "region-name")
       .text("South");
+/*
     g.append("text")
       .attr("x", bbox.x + bbox.width/2)
       .attr("y", bbox.y + bbox.height/2+10)
       .attr("text-anchor", "middle")
       .attr("class", "region-percent")
       .text(dstring(data[3]));
-
+*/
     g = d3.select("g.northeast");
     bbox = g.node().getBBox();
     g.append("circle")
@@ -141,17 +145,18 @@ function update_region(){
       .style("fill",function(d) { return circlecolor(data[4]); });
     g.append("text")
       .attr("x", bbox.x + bbox.width/2)
-      .attr("y", bbox.y + bbox.height/2-10)
+      .attr("y", bbox.y + bbox.height/2)
       .attr("text-anchor", "middle")
       .attr("class", "region-name")
       .text("Northeast");
+/*
     g.append("text")
       .attr("x", bbox.x + bbox.width/2)
       .attr("y", bbox.y + bbox.height/2+10)
       .attr("text-anchor", "middle")
       .attr("class", "region-percent")
       .text(dstring(data[4]));
-
+*/
 }
 
 function dstring(d){
